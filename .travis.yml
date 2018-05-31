@@ -4,8 +4,5 @@ cache: packages
 warnings_are_errors: true
 before_install:
   - pip install --user umap-learn
-r_packages:
-  - covr
-after_success:
-  - Rscript -e 'library(covr); codecov()'
-
+install:
+   - R -e 'setRepositories(ind = 1:2); devtools::install(dependencies = TRUE, upgrade = TRUE)'
