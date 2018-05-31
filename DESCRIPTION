@@ -22,5 +22,6 @@ Suggests:
   tsne,
   umapr
 Remotes:
+  dynverse/dynutils,
   ropenscilabs/umapr
 RoxygenNote: 6.0.1
