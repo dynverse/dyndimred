@@ -1,0 +1,26 @@
+Package: dyndimred
+Type: Package
+Title: Wrappers around dimensionality reduction methods for doing trajectory inference
+Version: 0.1.0
+Author: Wouter Saelens <wt53em@gmail.com>
+Maintainer: Wouter Saelens <wt53em@gmail.com>
+Description: Wrappers around dimensionality reduction methods for doing trajectory inference
+License: GPL-3
+Encoding: UTF-8
+LazyData: true
+Imports:
+  dynutils
+Suggests: 
+  testthat,
+  diffusionMap,
+  fastICA,
+  lle,
+  MASS,
+  Rtsne,
+  SIMLR,
+  smacof,
+  tsne,
+  umapr
+Remotes:
+  ropenscilabs/umapr
+RoxygenNote: 6.0.1
