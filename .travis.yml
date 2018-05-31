@@ -12,7 +12,6 @@ warnings_are_errors: true
 addons:
   apt:
     packages:
-      - libgsl0-dev                        # dyngen > splatter > zinbwave > copula > gsl
       - libsdl1.2-dev
       - libreadline-dev
       - imagemagick
@@ -20,8 +19,6 @@ addons:
       - libudunits2-dev
       - libblas-dev
       - liblapack-dev
-      - libglu1-mesa-dev                    # dynmethods > merlot > rgl
-      - libx11-dev                          # dynmethods > merlot > rgl
 before_install:
  - source <( curl --insecure https://raw.githubusercontent.com/dynverse/dynmethods/master/.travis_install_python.sh ) # use travis's own python
 install:
@@ -32,6 +29,5 @@ install:
  - R -e 'devtools::install_github(c("r-lib/rlang", "tidyverse/ggplot2"))'
  - R -e 'devtools::install_cran(c("covr", "knitr"))'
  - R -e 'setRepositories(ind = 1:2); devtools::install(dependencies = TRUE, upgrade = TRUE)'
- - R -e 'dynmethods::check_dependencies()'
 after_success:
  - R -e 'covr::codecov()'
