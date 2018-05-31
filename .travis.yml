@@ -1,0 +1,10 @@
+language: r
+sudo: false
+cache: packages
+warnings_are_errors: true
+before_install:
+  - pip install --user umap-learn
+r_packages:
+  - covr
+after_success:
+  - Rscript -e 'library(covr); codecov()'
