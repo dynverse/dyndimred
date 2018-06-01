@@ -23,5 +23,5 @@ Suggests:
   umapr
 Remotes:
   dynverse/dynutils,
-  zouter/umapr
+  ropenscilabs/umapr
 RoxygenNote: 6.0.1
