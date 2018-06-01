@@ -37,7 +37,7 @@ dimred <- function(x, method, ndim, ...) {
 #' @rdname dimred
 #' @export
 dimred_pca <- function(x, ndim = 3) {
-  space <- prcomp(t(x))$rotation[,seq_len(ndim)]
+  space <- stats::prcomp(x)$x[,seq_len(ndim)]
   process_dimred(space)
 }
 
