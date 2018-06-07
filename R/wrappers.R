@@ -83,7 +83,7 @@ dimred_mds_smacof <- function(x, ndim = 3) {
 dimred_tsne <- function(x, ndim = 3) {
   dynutils::install_packages(c("Rtsne"), "dyndimred")
 
-  space <- Rtsne::Rtsne(as.dist(dynutils::correlation_distance(x)), dims = ndim, is_distance = TRUE, perplexity=5)$Y
+  space <- Rtsne::Rtsne(as.dist(dynutils::correlation_distance(x)), dims = ndim, is_distance = TRUE, perplexity = 5)$Y
   rownames(space) = rownames(x)
   process_dimred(space)
 }
@@ -130,7 +130,7 @@ dimred_umap <- function(x, ndim = 2, n_neighbors = 15L) {
   process_dimred(space)
 }
 
-process_dimred <- function(space, rn=rownames(space)) {
+process_dimred <- function(space, rn = rownames(space)) {
   space <- as.matrix(space)
   dimnames(space) <- list(rn, paste0("comp_", seq_len(ncol(space))))
   space
