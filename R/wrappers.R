@@ -119,14 +119,24 @@ dimred_lle <- function(x, ndim = 3) {
   process_dimred(space)
 }
 
+# previous umap wrapper
+#' #' @rdname dimred
+#' #' @export
+#' dimred_umap <- function(x, ndim = 2, n_neighbors = 15L) {
+#'   dynutils::install_packages(c("uwot"), "dyndimred")
+#'
+#'   space <- umapr::umap(x, n_neighbors = n_neighbors, n_components = ndim)
+#'   space <- space[, (ncol(space)-ndim+1):ncol(space)]
+#'
+#'   process_dimred(space)
+#' }
+
+
 #' @rdname dimred
 #' @export
-dimred_umap <- function(x, ndim = 2, n_neighbors = 15L) {
-  dynutils::install_packages(c("umapr"), "dyndimred")
-
-  space <- umapr::umap(x, n_neighbors = n_neighbors, n_components = ndim)
-  space <- space[, (ncol(space)-ndim+1):ncol(space)]
-
+dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, alpha = 1, init = "spectral") {
+  space <- uwot::umap(x, n_components = ndim, n_neighbors = n_neighbors, alpha = alpha, init = init, n_threads = 1)
+  rownames(space) <- rownames(x)
   process_dimred(space)
 }
 
