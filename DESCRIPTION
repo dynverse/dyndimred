@@ -1,14 +1,30 @@
 Package: dyndimred
 Type: Package
-Title: Wrappers around dimensionality reduction methods for doing trajectory inference
+Title: Common dimensionality reduction methods
 Version: 0.1.0
-Author: Wouter Saelens <wt53em@gmail.com>
-Maintainer: Wouter Saelens <wt53em@gmail.com>
-Description: Wrappers around dimensionality reduction methods for doing trajectory inference
+Authors@R: c(
+    person(
+      "Robrecht", 
+      "Cannoodt", 
+      email = "rcannood@gmail.com", 
+      role = c("aut", "cre"),
+      comment = c(ORCID = "0000-0003-3641-729X", github = "rcannood")
+    ),
+    person(
+      "Wouter", 
+      "Saelens", 
+      email = "wouter.saelens@ugent.be", 
+      role = c("aut"), 
+      comment = c(ORCID = "0000-0002-7114-6248", github = "zouter")
+    )
+  )
+Description: 
+  Provides a common interface for applying common dimensionality reduction methods,
+  Such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
-Imports:
+Depends:
   dynutils
 Suggests: 
   testthat,
@@ -22,6 +38,5 @@ Suggests:
   tsne,
   umapr
 Remotes:
-  dynverse/dynutils,
   ropenscilabs/umapr
 RoxygenNote: 6.0.1

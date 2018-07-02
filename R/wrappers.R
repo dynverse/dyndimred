@@ -1,25 +1,8 @@
-#' @rdname dimred
-#' @export
-list_dimred_methods <- function() {
-  list(
-    pca = dimred_pca,
-    mds = dimred_mds,
-    tsne = dimred_tsne,
-    ica = dimred_ica,
-    lle = dimred_lle,
-    mds_sammon = dimred_mds_sammon,
-    mds_isomds = dimred_mds_isomds,
-    mds_smacof = dimred_mds_smacof,
-    umap = dimred_umap
-  )
-}
-
 #' Perform simple dimensionality reduction
 #'
 #' @param x Log transformed expression data, with rows as cells and columns as features
 #' @param method The name of the dimensionality reduction method to use
 #' @param ndim The number of dimensions
-#' @inheritParams umapr::umap
 #' @param ... Any arguments to be passed to the dimensionality reduction method
 #'
 #' @export
@@ -36,6 +19,31 @@ dimred <- function(x, method, ndim, ...) {
 
 #' @rdname dimred
 #' @export
+list_dimred_methods <- function() {
+  list(
+    pca = dimred_pca,
+    mds = dimred_mds,
+    tsne = dimred_tsne,
+    ica = dimred_ica,
+    lle = dimred_lle,
+    mds_sammon = dimred_mds_sammon,
+    mds_isomds = dimred_mds_isomds,
+    mds_smacof = dimred_mds_smacof,
+    umap = dimred_umap,
+    dm_diffusionMap = dimred_dm_diffusionMap
+  )
+}
+
+process_dimred <- function(space, rn = rownames(space)) {
+  space <- as.matrix(space)
+  dimnames(space) <- list(rn, paste0("comp_", seq_len(ncol(space))))
+  space
+}
+
+#' @rdname dimred
+#' @export
+#'
+#' @importFrom stats prcomp
 dimred_pca <- function(x, ndim = 3) {
   space <- stats::prcomp(x)$x[,seq_len(ndim)]
   process_dimred(space)
@@ -43,6 +51,8 @@ dimred_pca <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
+#'
+#' @importFrom stats cmdscale
 dimred_mds <- function(x, ndim = 3) {
   space <- stats::cmdscale(dynutils::correlation_distance(x), k = ndim)
   process_dimred(space)
@@ -51,8 +61,9 @@ dimred_mds <- function(x, ndim = 3) {
 #' @rdname dimred
 #' @export
 dimred_mds_sammon <- function(x, ndim = 3) {
-  dynutils::install_packages(c("MASS"), "dyndimred")
+  dynutils::install_packages(dependencies = "MASS", package = "dyndimred")
 
+  requireNamespace("MASS")
   dist <- dynutils::correlation_distance(x)
   space <- MASS::sammon(dist, k = ndim)$points
   process_dimred(space)
@@ -61,8 +72,9 @@ dimred_mds_sammon <- function(x, ndim = 3) {
 #' @rdname dimred
 #' @export
 dimred_mds_isomds <- function(x, ndim = 3) {
-  dynutils::install_packages(c("MASS"), "dyndimred")
+  dynutils::install_packages(dependencies = "MASS", package = "dyndimred")
 
+  requireNamespace("MASS")
   dist <- dynutils::correlation_distance(x)
   space <- MASS::isoMDS(dist, k = ndim)$points
   process_dimred(space)
@@ -70,39 +82,47 @@ dimred_mds_isomds <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
+#' @importFrom stats as.dist
 dimred_mds_smacof <- function(x, ndim = 3) {
-  dynutils::install_packages(c("smacof"), "dyndimred")
+  dynutils::install_packages(dependencies = "smacof", package = "dyndimred")
 
+  requireNamespace("smacof")
   dist <- dynutils::correlation_distance(x)
-  space <- smacof::mds(as.dist(dist), type = "ratio", ndim = ndim)$conf
+  space <- smacof::mds(stats::as.dist(dist), type = "ratio", ndim = ndim)$conf
   process_dimred(space)
 }
 
 #' @rdname dimred
 #' @export
+#' @importFrom stats as.dist
 dimred_tsne <- function(x, ndim = 3) {
-  dynutils::install_packages(c("Rtsne"), "dyndimred")
+  dynutils::install_packages(dependencies = "Rtsne", package = "dyndimred")
 
-  space <- Rtsne::Rtsne(as.dist(dynutils::correlation_distance(x)), dims = ndim, is_distance = TRUE, perplexity = 5)$Y
-  rownames(space) = rownames(x)
-  process_dimred(space)
+  requireNamespace("Rtsne")
+  dist <- dynutils::correlation_distance(x)
+  space <- Rtsne::Rtsne(stats::as.dist(dist), dims = ndim, is_distance = TRUE, perplexity = 5)$Y
+  process_dimred(space, rownames(x))
 }
 
 #' @rdname dimred
 #' @export
-dimred_dp <- function(x, ndim = 3) {
-  dynutils::install_packages(c("diffusionMap"), "dyndimred")
+#'
+#' @importFrom stats as.dist
+dimred_dm_diffusionMap <- function(x, ndim = 3) {
+  dynutils::install_packages(dependencies = "diffusionMap", package = "dyndimred")
 
-  space <- diffusionMap::diffuse(as.dist(dynutils::correlation_distance(x)), neigen = ndim, delta = 10e-5)
-  rownames(space$X) <- rownames(x)
-  process_dimred(space$X[,seq_len(ndim)])
+  requireNamespace("diffusionMap")
+  dist <- dynutils::correlation_distance(x)
+  space <- diffusionMap::diffuse(stats::as.dist(dist), neigen = ndim, delta = 10e-5)$X
+  process_dimred(space[,seq_len(ndim)], rownames(x))
 }
 
 #' @rdname dimred
 #' @export
 dimred_ica <- function(x, ndim = 3) {
-  dynutils::install_packages(c("fastICA"), "dyndimred")
+  dynutils::install_packages(dependencies = "fastICA", package = "dyndimred")
 
+  requireNamespace("fastICA")
   space <- fastICA::fastICA(t(scale(t(x))), ndim)$S
   process_dimred(space)
 }
@@ -110,28 +130,26 @@ dimred_ica <- function(x, ndim = 3) {
 #' @rdname dimred
 #' @export
 dimred_lle <- function(x, ndim = 3) {
-  dynutils::install_packages(c("lle"), "dyndimred")
+  dynutils::install_packages(dependencies = "lle", package = "dyndimred")
 
+  requireNamespace("lle")
   k <- lle::calc_k(t(scale(t(x))), ndim)
   k <- k$k[which.min(k$rho)]
   space <- lle::lle(t(scale(t(x))), ndim, k)$Y
-  rownames(space) <- rownames(x)
-  process_dimred(space)
+  process_dimred(space, rownames(x))
 }
 
 #' @rdname dimred
 #' @export
+#'
+#' @inheritParams umapr::umap
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L) {
-  dynutils::install_packages(c("umapr"), "dyndimred")
+  dynutils::install_packages(dependencies = "umapr", package = "dyndimred")
 
+  requireNamespace("umapr")
   space <- umapr::umap(x, n_neighbors = n_neighbors, n_components = ndim)
   space <- space[, (ncol(space)-ndim+1):ncol(space)]
 
   process_dimred(space)
 }
 
-process_dimred <- function(space, rn = rownames(space)) {
-  space <- as.matrix(space)
-  dimnames(space) <- list(rn, paste0("comp_", seq_len(ncol(space))))
-  space
-}
