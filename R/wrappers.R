@@ -90,12 +90,15 @@ dimred_tsne <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
-dimred_dp <- function(x, ndim = 3) {
-  dynutils::install_packages(c("diffusionMap"), "dyndimred")
+#'
+#' @importFrom stats as.dist
+dimred_dm_diffusionMap <- function(x, ndim = 3) {
+  dynutils::install_packages(dependencies = "diffusionMap", package = "dyndimred")
 
-  space <- diffusionMap::diffuse(as.dist(dynutils::correlation_distance(x)), neigen = ndim, delta = 10e-5)
-  rownames(space$X) <- rownames(x)
-  process_dimred(space$X[,seq_len(ndim)])
+  requireNamespace("diffusionMap")
+  dist <- dynutils::correlation_distance(x)
+  space <- diffusionMap::diffuse(stats::as.dist(dist), neigen = ndim, delta = 10e-5)$X
+  process_dimred(space[,seq_len(ndim)], rownames(x))
 }
 
 #' @rdname dimred
