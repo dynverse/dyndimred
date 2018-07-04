@@ -36,21 +36,21 @@ dimred <- function(x, method, ndim, ...) {
 
 #' @rdname dimred
 #' @export
-dimred_pca <- function(x, ndim = 3) {
+dimred_pca <- function(x, ndim = 2) {
   space <- stats::prcomp(x)$x[,seq_len(ndim)]
   process_dimred(space)
 }
 
 #' @rdname dimred
 #' @export
-dimred_mds <- function(x, ndim = 3) {
+dimred_mds <- function(x, ndim = 2) {
   space <- stats::cmdscale(dynutils::correlation_distance(x), k = ndim)
   process_dimred(space)
 }
 
 #' @rdname dimred
 #' @export
-dimred_mds_sammon <- function(x, ndim = 3) {
+dimred_mds_sammon <- function(x, ndim = 2) {
   dynutils::install_packages(c("MASS"), "dyndimred")
 
   dist <- dynutils::correlation_distance(x)
@@ -60,7 +60,7 @@ dimred_mds_sammon <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
-dimred_mds_isomds <- function(x, ndim = 3) {
+dimred_mds_isomds <- function(x, ndim = 2) {
   dynutils::install_packages(c("MASS"), "dyndimred")
 
   dist <- dynutils::correlation_distance(x)
@@ -70,7 +70,7 @@ dimred_mds_isomds <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
-dimred_mds_smacof <- function(x, ndim = 3) {
+dimred_mds_smacof <- function(x, ndim = 2) {
   dynutils::install_packages(c("smacof"), "dyndimred")
 
   dist <- dynutils::correlation_distance(x)
@@ -80,7 +80,7 @@ dimred_mds_smacof <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
-dimred_tsne <- function(x, ndim = 3) {
+dimred_tsne <- function(x, ndim = 2) {
   dynutils::install_packages(c("Rtsne"), "dyndimred")
 
   space <- Rtsne::Rtsne(as.dist(dynutils::correlation_distance(x)), dims = ndim, is_distance = TRUE, perplexity = 5)$Y
@@ -92,7 +92,7 @@ dimred_tsne <- function(x, ndim = 3) {
 #' @export
 #'
 #' @importFrom stats as.dist
-dimred_dm_diffusionMap <- function(x, ndim = 3) {
+dimred_dm_diffusionMap <- function(x, ndim = 2) {
   dynutils::install_packages(dependencies = "diffusionMap", package = "dyndimred")
 
   requireNamespace("diffusionMap")
@@ -103,7 +103,7 @@ dimred_dm_diffusionMap <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
-dimred_ica <- function(x, ndim = 3) {
+dimred_ica <- function(x, ndim = 2) {
   dynutils::install_packages(c("fastICA"), "dyndimred")
 
   space <- fastICA::fastICA(t(scale(t(x))), ndim)$S
@@ -112,7 +112,7 @@ dimred_ica <- function(x, ndim = 3) {
 
 #' @rdname dimred
 #' @export
-dimred_lle <- function(x, ndim = 3) {
+dimred_lle <- function(x, ndim = 2) {
   dynutils::install_packages(c("lle"), "dyndimred")
 
   k <- lle::calc_k(t(scale(t(x))), ndim)
