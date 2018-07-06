@@ -11,7 +11,6 @@
 \alias{dimred_dm_diffusionMap}
 \alias{dimred_ica}
 \alias{dimred_lle}
-\alias{dimred_umap}
 \title{Perform simple dimensionality reduction}
 \usage{
 list_dimred_methods()
@@ -33,9 +32,6 @@ dimred_dm_diffusionMap(x, ndim = 2)
 dimred_ica(x, ndim = 3)
 
 dimred_lle(x, ndim = 3)
-
-dimred_umap(x, ndim = 2, n_neighbors = 15L, alpha = 1,
-  init = "spectral")
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
@@ -45,34 +41,6 @@ dimred_umap(x, ndim = 2, n_neighbors = 15L, alpha = 1,
 \item{ndim}{The number of dimensions}
 
 \item{...}{Any arguments to be passed to the dimensionality reduction method}
-
-\item{n_neighbors}{The size of local neighborhood (in terms of number of
-neighboring sample points) used for manifold approximation. Larger values
-result in more global views of the manifold, while smaller values result in
-more local data being preserved. In general values should be in the range
-\code{2} to \code{100}.}
-
-\item{alpha}{Initial learning rate used in optimization of the coordinates.}
-
-\item{init}{Type of initialization for the coordinates. Options are:
-\itemize{
-  \item \code{"spectral"} Spectral embedding using the normalized Laplacian
-  of the fuzzy 1-skeleton, with Gaussian noise added.
-  \item \code{"normlaplacian"}. Spectral embedding using the normalized
-  Laplacian of the fuzzy 1-skeleton, without noise.
-  \item \code{"random"}. Coordinates assigned using a uniform random
-  distribution between -10 and 10.
-  \item \code{"lvrandom"}. Coordinates assigned using a Gaussian
-  distribution with standard deviation 1e-4, as in LargeVis
-  (Tang et al., 2016).
-  \item \code{"laplacian"}. Spectral embedding using the Laplacian Eigenmap
-  (Belkin and Niyogi, 2002).
-  \item \code{"spca"}. The first two principal components from PCA of
-  \code{X} if \code{X} is a data frame, and from a 2-dimensional classical
-  MDS if \code{X} is of class \code{"dist"}. These vectors are then scaled
-  so their standard deviation is 0.0001.
-  \item A matrix of initial coordinates.
-}}
 }
 \description{
 Perform simple dimensionality reduction
