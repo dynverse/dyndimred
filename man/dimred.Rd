@@ -8,6 +8,7 @@
 \alias{dimred_mds_sammon}
 \alias{dimred_mds_isomds}
 \alias{dimred_mds_smacof}
+\alias{dimred_tsne}
 \alias{dimred_dm_diffusionMap}
 \alias{dimred_ica}
 \alias{dimred_lle}
@@ -27,6 +28,8 @@ dimred_mds_sammon(x, ndim = 2)
 dimred_mds_isomds(x, ndim = 2)
 
 dimred_mds_smacof(x, ndim = 2)
+
+dimred_tsne(x, ndim = 2)
 
 dimred_dm_diffusionMap(x, ndim = 2)
 

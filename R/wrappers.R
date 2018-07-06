@@ -94,6 +94,7 @@ dimred_mds_landmark <- function(x, ndim = 2, landmark_method = "naive", num_land
   process_dimred(space)
 }
 
+#' @rdname dimred
 #' @export
 dimred_tsne <- function(x, ndim = 2) {
   dynutils::install_packages(c("Rtsne"), "dyndimred")
