@@ -19,7 +19,6 @@ list_dimred_methods <- function() {
 #' @param x Log transformed expression data, with rows as cells and columns as features
 #' @param method The name of the dimensionality reduction method to use
 #' @param ndim The number of dimensions
-#' @inheritParams umapr::umap
 #' @param ... Any arguments to be passed to the dimensionality reduction method
 #'
 #' @export
@@ -103,49 +102,35 @@ dimred_dm_diffusionMap <- function(x, ndim = 2) {
 
 #' @rdname dimred
 #' @export
-dimred_ica <- function(x, ndim = 2) {
-  dynutils::install_packages(c("fastICA"), "dyndimred")
+dimred_ica <- function(x, ndim = 3) {
+  dynutils::install_packages(dependencies = "fastICA", package = "dyndimred")
 
+  requireNamespace("fastICA")
   space <- fastICA::fastICA(t(scale(t(x))), ndim)$S
   process_dimred(space)
 }
 
 #' @rdname dimred
 #' @export
-dimred_lle <- function(x, ndim = 2) {
-  dynutils::install_packages(c("lle"), "dyndimred")
+dimred_lle <- function(x, ndim = 3) {
+  dynutils::install_packages(dependencies = "lle", package = "dyndimred")
 
+  requireNamespace("lle")
   k <- lle::calc_k(t(scale(t(x))), ndim)
   k <- k$k[which.min(k$rho)]
   space <- lle::lle(t(scale(t(x))), ndim, k)$Y
-  rownames(space) <- rownames(x)
-  process_dimred(space)
+  process_dimred(space, rownames(x))
 }
 
-# previous umap wrapper
-#' #' @rdname dimred
-#' #' @export
-#'
-#' #' @inheritParams umapr::umap
-#' dimred_umap <- function(x, ndim = 2, n_neighbors = 15L) {
-#'
-#'   dynutils::install_packages(dependencies = "umapr", package = "dyndimred")
-#'
-#'   space <- umapr::umap(x, n_neighbors = n_neighbors, n_components = ndim)
-#'   space <- space[, (ncol(space)-ndim+1):ncol(space)]
-#'
-#'   process_dimred(space)
-#' }
-
-
 #' @rdname dimred
+#' @inheritParams uwot::umap
 #' @export
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, alpha = 1, init = "spectral") {
   dynutils::install_packages(dependencies = "uwot", package = "dyndimred")
 
+  requireNamespace("uwot")
   space <- uwot::umap(x, n_components = ndim, n_neighbors = n_neighbors, alpha = alpha, init = init, n_threads = 1)
-  rownames(space) <- rownames(x)
-  process_dimred(space)
+  process_dimred(space, rownames(x))
 }
 
 process_dimred <- function(space, rn = rownames(space)) {
