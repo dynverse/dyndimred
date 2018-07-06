@@ -34,7 +34,6 @@ Suggests:
   MASS,
   Rtsne,
   SCORPIUS,
-  SIMLR,
   smacof,
   tsne,
   uwot
