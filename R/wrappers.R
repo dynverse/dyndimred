@@ -81,7 +81,7 @@ dimred_mds_smacof <- function(x, ndim = 2) {
 #' @inheritParams SCORPIUS::reduce_dimensionality
 #' @seealso [SCORPIUS::reduce_dimensionality()]
 #' @export
-dimred_mds_landmark <- function(x, ndim = 2, landmark_method = "naive", num_landmarks = 100, rescale = T) {
+dimred_landmark_mds <- function(x, ndim = 2, landmark_method = "naive", num_landmarks = 100, rescale = T) {
   dynutils::install_packages(c("SCORPIUS"), "dyndimred")
 
   space <- SCORPIUS::reduce_dimensionality(
@@ -94,12 +94,21 @@ dimred_mds_landmark <- function(x, ndim = 2, landmark_method = "naive", num_land
   process_dimred(space)
 }
 
-#' @rdname dimred
+#' tSNE
+#' @inheritParams Rtsne::Rtsne
+#' @seealso [Rtsne::Rtsne()]
 #' @export
-dimred_tsne <- function(x, ndim = 2) {
+dimred_tsne <- function(x, ndim = 2, perplexity = 30, theta = 0.5, initial_dims = 50) {
   dynutils::install_packages(c("Rtsne"), "dyndimred")
 
-  space <- Rtsne::Rtsne(as.dist(dynutils::correlation_distance(x)), dims = ndim, is_distance = TRUE, perplexity = 5)$Y
+  space <- Rtsne::Rtsne(
+    as.dist(dynutils::correlation_distance(x)),
+    dims = ndim,
+    is_distance = TRUE,
+    perplexity = perplexity,
+    theta = theta,
+    initial_dims = initial_dims
+  )$Y
   rownames(space) = rownames(x)
   process_dimred(space)
 }
