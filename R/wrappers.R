@@ -77,7 +77,23 @@ dimred_mds_smacof <- function(x, ndim = 2) {
   process_dimred(space)
 }
 
-#' @rdname dimred
+#' Landmark MDS
+#' @inheritParams SCORPIUS::reduce_dimensionality
+#' @seealso [SCORPIUS::reduce_dimensionality()]
+#' @export
+dimred_mds_landmark <- function(x, ndim = 2, landmark_method = "naive", num_landmarks = 100, rescale = T) {
+  dynutils::install_packages(c("SCORPIUS"), "dyndimred")
+
+  space <- SCORPIUS::reduce_dimensionality(
+    x,
+    dynutils::correlation_distance,
+    num_landmarks = num_landmarks,
+    ndim = ndim
+  )
+
+  process_dimred(space)
+}
+
 #' @export
 dimred_tsne <- function(x, ndim = 2) {
   dynutils::install_packages(c("Rtsne"), "dyndimred")
