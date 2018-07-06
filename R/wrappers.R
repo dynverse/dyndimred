@@ -84,6 +84,7 @@ dimred_mds_smacof <- function(x, ndim = 2) {
 dimred_landmark_mds <- function(x, ndim = 2, landmark_method = "naive", num_landmarks = 100, rescale = T) {
   dynutils::install_packages(c("SCORPIUS"), "dyndimred")
 
+  requireNamespace("SCORPIUS")
   space <- SCORPIUS::reduce_dimensionality(
     x,
     dynutils::correlation_distance,
@@ -101,6 +102,7 @@ dimred_landmark_mds <- function(x, ndim = 2, landmark_method = "naive", num_land
 dimred_tsne <- function(x, ndim = 2, perplexity = 30, theta = 0.5, initial_dims = 50) {
   dynutils::install_packages(c("Rtsne"), "dyndimred")
 
+  requireNamespace("Rtsne")
   space <- Rtsne::Rtsne(
     as.dist(dynutils::correlation_distance(x)),
     dims = ndim,
@@ -148,8 +150,9 @@ dimred_lle <- function(x, ndim = 3) {
   process_dimred(space, rownames(x))
 }
 
-#' @rdname dimred
+#' UMAP
 #' @inheritParams uwot::umap
+#' @seealso [uwot::umap()]
 #' @export
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, alpha = 1, init = "spectral") {
   dynutils::install_packages(dependencies = "uwot", package = "dyndimred")
