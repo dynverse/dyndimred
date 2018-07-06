@@ -8,6 +8,10 @@ dimred_umap(x, ndim = 2, n_neighbors = 15L, alpha = 1,
   init = "spectral", n_threads = 1)
 }
 \arguments{
+\item{x}{Log transformed expression data, with rows as cells and columns as features}
+
+\item{ndim}{The number of dimensions}
+
 \item{n_neighbors}{The size of local neighborhood (in terms of number of
 neighboring sample points) used for manifold approximation. Larger values
 result in more global views of the manifold, while smaller values result in

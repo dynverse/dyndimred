@@ -8,6 +8,10 @@ dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
   initial_dims = 50)
 }
 \arguments{
+\item{x}{Log transformed expression data, with rows as cells and columns as features}
+
+\item{ndim}{The number of dimensions}
+
 \item{perplexity}{numeric; Perplexity parameter}
 
 \item{theta}{numeric; Speed/accuracy trade-off (increase for less accuracy), set to 0.0 for exact TSNE (default: 0.5)}

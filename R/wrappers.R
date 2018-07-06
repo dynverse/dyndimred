@@ -78,6 +78,7 @@ dimred_mds_smacof <- function(x, ndim = 2) {
 }
 
 #' Landmark MDS
+#' @inheritParams dimred
 #' @inheritParams SCORPIUS::reduce_dimensionality
 #' @seealso [SCORPIUS::reduce_dimensionality()]
 #' @export
@@ -96,6 +97,7 @@ dimred_landmark_mds <- function(x, ndim = 2, landmark_method = "naive", num_land
 }
 
 #' tSNE
+#' @inheritParams dimred
 #' @inheritParams Rtsne::Rtsne
 #' @seealso [Rtsne::Rtsne()]
 #' @export
@@ -151,6 +153,7 @@ dimred_lle <- function(x, ndim = 3) {
 }
 
 #' UMAP
+#' @inheritParams dimred
 #' @inheritParams uwot::umap
 #' @seealso [uwot::umap()]
 #' @export

@@ -8,9 +8,9 @@ dimred_landmark_mds(x, ndim = 2, landmark_method = "naive",
   num_landmarks = 100, rescale = T)
 }
 \arguments{
-\item{x}{a numeric matrix}
+\item{x}{Log transformed expression data, with rows as cells and columns as features}
 
-\item{ndim}{the maximum dimension of the space which the data are to be represented in; must be in {1, 2, \ldots, n-1}.}
+\item{ndim}{The number of dimensions}
 
 \item{landmark_method}{Must be "naive" for now. Other landmark methods will be supported in the future.}
 
