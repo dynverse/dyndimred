@@ -28,6 +28,7 @@ Depends:
   dynutils
 Suggests: 
   testthat,
+  destiny,
   diffusionMap,
   fastICA,
   lle,
@@ -40,5 +41,5 @@ Suggests:
 Remotes:
   dynverse/dynutils,
   jlmelville/uwot
-RoxygenNote: 6.0.1
+RoxygenNote: 6.1.0
 Roxygen: list(markdown = TRUE)
