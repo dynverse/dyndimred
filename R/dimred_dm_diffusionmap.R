@@ -2,7 +2,7 @@
 #' @export
 #'
 #' @importFrom stats as.dist
-dimred_dm_diffusionMap <- function(x, ndim = 2) {
+dimred_dm_diffusionmap <- function(x, ndim = 2) {
   dynutils::install_packages(dependencies = "diffusionMap", package = "dyndimred")
 
   requireNamespace("diffusionMap")

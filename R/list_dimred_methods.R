@@ -12,7 +12,7 @@ list_dimred_methods <- function() {
     mds_isomds = dimred_mds_isomds,
     mds_smacof = dimred_mds_smacof,
     umap = dimred_umap,
-    dm_diffusionmap = dimred_dm_diffusionMap,
+    dm_diffusionmap = dimred_dm_diffusionmap,
     dm_destiny = dimred_dm_destiny
   )
 }
