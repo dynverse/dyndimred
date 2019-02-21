@@ -12,7 +12,7 @@ dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
 
 \item{ndim}{The number of dimensions}
 
-\item{perplexity}{numeric; Perplexity parameter}
+\item{perplexity}{numeric; Perplexity parameter (should not be bigger than 3 * perplexity < nrow(X) - 1, see details for interpretation)}
 
 \item{theta}{numeric; Speed/accuracy trade-off (increase for less accuracy), set to 0.0 for exact TSNE (default: 0.5)}
 
