@@ -5,6 +5,10 @@
 dimred_dm_destiny <- function(x, ndim = 2) {
   dynutils::install_packages(dependencies = "destiny", package = "dyndimred")
 
+  if (dynutils::is_sparse(x)) {
+    x <- as.matrix(x)
+  }
+
   requireNamespace("destiny")
 
   dm <- destiny::DiffusionMap(
