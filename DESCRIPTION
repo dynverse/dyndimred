@@ -1,7 +1,7 @@
 Package: dyndimred
 Type: Package
 Title: Dimensionality reduction methods in a common format
-Version: 0.1.0
+Version: 0.9.9
 Authors@R: c(
     person(
       "Robrecht", 
@@ -25,7 +25,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Depends:
-  dynutils
+  dynutils (>= 1.0.1.9000)
 Suggests: 
   testthat,
   destiny,
