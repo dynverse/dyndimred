@@ -4,7 +4,7 @@
 #' @seealso [Rtsne::Rtsne()]
 #' @export
 dimred_tsne <- function(x, ndim = 2, perplexity = 30, theta = 0.5, initial_dims = 50) {
-  dynutils::install_packages(c("Rtsne"), "dyndimred")
+  required_check("Rtsne")
 
   requireNamespace("Rtsne")
   space <- Rtsne::Rtsne(
