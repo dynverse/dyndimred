@@ -3,14 +3,19 @@
 #' @inheritParams uwot::umap
 #' @seealso [uwot::umap()]
 #' @export
-dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, init = "spectral", n_threads = 1) {
-  dynutils::install_packages(dependencies = "uwot", package = "dyndimred")
+dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, init = "spectral") {
+  required_check("umap")
 
   if (dynutils::is_sparse(x)) {
     x <- as.matrix(x)
   }
 
-  requireNamespace("uwot")
-  space <- uwot::umap(x, n_components = ndim, n_neighbors = n_neighbors, init = init, n_threads = n_threads)
-  process_dimred(space, rownames(x))
+  config <- umap::umap.defaults
+  config$n_components <- ndim
+  config$n_neighbors <- n_neighbors
+  config$init <- init
+
+  requireNamespace("umap")
+  space <- umap::umap(x, config)
+  process_dimred(space$layout, rownames(x))
 }
