@@ -3,7 +3,11 @@
 #'
 #' @importFrom stats as.dist
 dimred_dm_destiny <- function(x, ndim = 2) {
-  dynutils::install_packages(dependencies = "destiny", package = "dyndimred")
+  required_check("destiny")
+
+  if (dynutils::is_sparse(x)) {
+    x <- as.matrix(x)
+  }
 
   requireNamespace("destiny")
 

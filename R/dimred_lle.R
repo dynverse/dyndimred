@@ -1,7 +1,11 @@
 #' @rdname dimred
 #' @export
 dimred_lle <- function(x, ndim = 3) {
-  dynutils::install_packages(dependencies = "lle", package = "dyndimred")
+  required_check("lle")
+
+  if (dynutils::is_sparse(x)) {
+    x <- as.matrix(x)
+  }
 
   requireNamespace("lle")
   k <- lle::calc_k(t(scale(t(x))), ndim)

@@ -7,7 +7,7 @@ test_that("Retrieving dimred_methods", {
   expect_named(methods)
 })
 
-expr <- matrix(runif(1000), nrow = 100, ncol = 10)
+expr <- Matrix::Matrix(runif(1000), nrow = 100, ncol = 10, sparse = TRUE)
 rownames(expr) <- sample(as.character(1:10000), nrow(expr))
 
 expect_error(dimred(expr, method = "prism_in_the_steets_of_london", ndim = 5))

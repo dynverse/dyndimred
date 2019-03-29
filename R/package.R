@@ -8,3 +8,11 @@
 #' @docType package
 #' @name dyndimred
 NULL
+
+
+
+required_check <- function (pkg) {
+  if (!requireNamespace(pkg, quietly = TRUE)) {
+    stop(paste0(pkg, "not installed, install it using install.packages('", pkg, "')"))
+  }
+}
