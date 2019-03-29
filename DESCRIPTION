@@ -37,7 +37,7 @@ Suggests:
   SCORPIUS,
   smacof,
   tsne,
-  umap
+  uwot
 Remotes:
   jlmelville/uwot
 RoxygenNote: 6.1.1

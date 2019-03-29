@@ -4,8 +4,7 @@
 \alias{dimred_umap}
 \title{UMAP}
 \usage{
-dimred_umap(x, ndim = 2, n_neighbors = 15L, init = "spectral",
-  n_threads = 1)
+dimred_umap(x, ndim = 2, n_neighbors = 15L, init = "spectral")
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
@@ -37,10 +36,6 @@ more local data being preserved. In general values should be in the range
   so their standard deviation is 0.0001.
   \item A matrix of initial coordinates.
 }}
-
-\item{n_threads}{Number of threads to use. Default is half that recommended
-by RcppParallel. For nearest neighbor search, only applies if
-\code{nn_method = "annoy"}.}
 }
 \description{
 UMAP
