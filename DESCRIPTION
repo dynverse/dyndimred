@@ -39,6 +39,7 @@ Suggests:
   tsne,
   uwot
 Remotes:
-  jlmelville/uwot
+  jlmelville/uwot,
+  dynverse/dynutils
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
