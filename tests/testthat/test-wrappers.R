@@ -7,7 +7,7 @@ test_that("Retrieving dimred_methods", {
   expect_named(methods)
 })
 
-expr <- matrix(runif(1000), nrow=100, ncol=10)
+expr <- Matrix::Matrix(runif(1000), nrow = 100, ncol = 10, sparse = TRUE)
 rownames(expr) <- sample(as.character(1:10000), nrow(expr))
 
 expect_error(dimred(expr, method = "prism_in_the_steets_of_london", ndim = 5))
@@ -37,12 +37,13 @@ for (method_name in names(methods)) {
     expect_equal(ncol(out2), 2)
 
     sink("/dev/null")
-    out3 <- dimred(expr, method = method_name, ndim = 5)
+    ndim <- ifelse(method_name == "tsne", 3, 5)
+    out3 <- dimred(expr, method = method_name, ndim = ndim)
     sink()
     expect_is(out3, "matrix")
     expect_identical(rownames(out3), rownames(expr))
     expect_identical(colnames(out3), paste0("comp_", seq_len(ncol(out3))))
-    expect_equal(ncol(out3), 5)
+    expect_equal(ncol(out3), ndim)
 
     v1 <- as.vector(as.matrix(dist(out1)))
     v2 <- as.vector(as.matrix(dist(out2)))
