@@ -38,8 +38,8 @@ Suggests:
   smacof,
   tsne,
   uwot
-Remotes: 
+Remotes:  
     jlmelville/uwot,
-    dynverse/dynutils@devel
+    dynverse/dynutils@master
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
