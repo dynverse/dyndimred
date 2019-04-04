@@ -19,28 +19,45 @@ more local data being preserved. In general values should be in the range
 \code{2} to \code{100}.}
 
 \item{init}{Type of initialization for the coordinates. Options are:
-\itemize{
-  \item \code{"spectral"} Spectral embedding using the normalized Laplacian
-  of the fuzzy 1-skeleton, with Gaussian noise added.
-  \item \code{"normlaplacian"}. Spectral embedding using the normalized
-  Laplacian of the fuzzy 1-skeleton, without noise.
-  \item \code{"random"}. Coordinates assigned using a uniform random
-  distribution between -10 and 10.
-  \item \code{"lvrandom"}. Coordinates assigned using a Gaussian
-  distribution with standard deviation 1e-4, as in LargeVis
-  (Tang et al., 2016).
-  \item \code{"laplacian"}. Spectral embedding using the Laplacian Eigenmap
-  (Belkin and Niyogi, 2002).
-  \item \code{"spca"}. The first two principal components from PCA of
-  \code{X} if \code{X} is a data frame, and from a 2-dimensional classical
-  MDS if \code{X} is of class \code{"dist"}. These vectors are then scaled
-  so their standard deviation is 0.0001.
-  \item A matrix of initial coordinates.
-}}
+ \itemize{
+   \item \code{"spectral"} Spectral embedding using the normalized Laplacian
+   of the fuzzy 1-skeleton, with Gaussian noise added.
+   \item \code{"normlaplacian"}. Spectral embedding using the normalized
+   Laplacian of the fuzzy 1-skeleton, without noise.
+   \item \code{"random"}. Coordinates assigned using a uniform random
+   distribution between -10 and 10.
+   \item \code{"lvrandom"}. Coordinates assigned using a Gaussian
+   distribution with standard deviation 1e-4, as used in LargeVis
+   (Tang et al., 2016) and t-SNE.
+   \item \code{"laplacian"}. Spectral embedding using the Laplacian Eigenmap
+   (Belkin and Niyogi, 2002).
+   \item \code{"pca"}. The first two principal components from PCA of
+   \code{X} if \code{X} is a data frame, and from a 2-dimensional classical
+   MDS if \code{X} is of class \code{"dist"}.
+   \item \code{"spca"}. Like \code{"pca"}, but each dimension is then scaled
+   so the standard deviation is 1e-4, to give a distribution similar to that
+   used in t-SNE. This is an alias for \code{init = "pca", init_sdev =
+   1e-4}.
+   \item \code{"agspectral"} An "approximate global" modification of
+   \code{"spectral"} which all edges in the graph to a value of 1, and then
+   sets a random number of edges (\code{negative_sample_rate} edges per
+   vertex) to 0.1, to approximate the effect of non-local affinities.
+   \item A matrix of initial coordinates.
+ }
+For spectral initializations, (\code{"spectral"}, \code{"normlaplacian"},
+\code{"laplacian"}), if more than one connected component is identified,
+each connected component is initialized separately and the results are
+merged. If \code{verbose = TRUE} the number of connected components are
+logged to the console. The existence of multiple connected components
+implies that a global view of the data cannot be attained with this
+initialization. Either a PCA-based initialization or increasing the value of
+\code{n_neighbors} may be more appropriate.}
 
-\item{n_threads}{Number of threads to use. Default is half that recommended
-by RcppParallel. For nearest neighbor search, only applies if
-\code{nn_method = "annoy"}.}
+\item{n_threads}{Number of threads to use (except during stochastic gradient
+descent). Default is half that recommended by RcppParallel. For
+nearest neighbor search, only applies if \code{nn_method = "annoy"}. If 
+\code{n_threads > 1}, then the Annoy index will be temporarily written to
+disk in the location determined by \code{\link[base]{tempfile}}.}
 }
 \description{
 UMAP
