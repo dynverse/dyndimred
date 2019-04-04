@@ -4,5 +4,5 @@
 dimred_pca <- function(x, ndim = 2) {
   space <- irlba::prcomp_irlba(x, n = ndim)$x
 
-  process_dimred(space)
+  process_dimred(space, rn = rownames(x))
 }
