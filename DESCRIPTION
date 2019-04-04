@@ -31,6 +31,7 @@ Suggests:
   destiny,
   diffusionMap,
   fastICA,
+  irlba,
   lle,
   MASS,
   Rtsne,
