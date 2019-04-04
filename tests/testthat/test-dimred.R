@@ -1,16 +1,8 @@
 context("Dimred for expression")
 
-test_that("Retrieving dimred_methods", {
-  methods <- list_dimred_methods()
-  expect_is(methods, "list")
-  expect_gt(length(methods), 0)
-  expect_named(methods)
-})
-
-expr <- Matrix::Matrix(runif(1000), nrow = 100, ncol = 10, sparse = TRUE)
-rownames(expr) <- sample(as.character(1:10000), nrow(expr))
-
-expect_error(dimred(expr, method = "prism_in_the_steets_of_london", ndim = 5))
+expr <- matrix(runif(200 * 100), nrow = 200)
+rownames(expr) <- sample(paste0("row", seq_len(nrow(expr))))
+colnames(expr) <- sample(paste0("col", seq_len(ncol(expr))))
 
 methods <- list_dimred_methods()
 
@@ -54,11 +46,3 @@ for (method_name in names(methods)) {
     dev.off()
   })
 }
-
-
-test_that("Testing process_dimred", {
-  sp <- matrix(runif(1:10), nrow = 2)
-  new_sp <- process_dimred(sp, c("A", "B"))
-  expect_identical(rownames(new_sp), c("A", "B"))
-  expect_identical(colnames(new_sp), paste0("comp_", seq_len(5)))
-})
