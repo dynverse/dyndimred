@@ -6,7 +6,7 @@
 \usage{
 dimred_landmark_mds(x, ndim = 2, distance_metric = c("spearman",
   "euclidean", "manhattan", "angular", "pearson", "kendall"),
-  landmark_method = c("naive"), num_landmarks = 100, rescale = TRUE)
+  landmark_method = c("naive"), num_landmarks = 100)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
