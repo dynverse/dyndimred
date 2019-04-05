@@ -40,7 +40,7 @@ for (method_name in names(methods)) {
 
 large_expr <- generate_expr(nrow = 20000, ncol = 10000)
 
-should_scale <- c("pca")
+should_scale <- c("pca") # landmark_mds, umap
 for (method_name in should_scale) {
   test_that(paste0("Perform large dimred ", method_name), {
     method_fun <- methods[[method_name]]

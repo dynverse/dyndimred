@@ -25,7 +25,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-  dynutils (>= 1.0.2)
+  dynutils (>= 1.0.2.9000)
 Suggests: 
   testthat,
   destiny,
@@ -35,7 +35,6 @@ Suggests:
   lle,
   MASS,
   Rtsne,
-  SCORPIUS,
   smacof,
   tsne,
   uwot

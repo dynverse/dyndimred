@@ -1,6 +1,7 @@
 context("Dimred for expression")
 
-expr <- matrix(runif(200 * 100), nrow = 200)
+x <- seq(-1, 1, length.out = 200)
+expr <- do.call(cbind, lapply(seq_len(100), function(i) x^rbinom(1, size = 10, prob = .5) + rnorm(length(x), 0, .1)))
 rownames(expr) <- sample(paste0("row", seq_len(nrow(expr))))
 colnames(expr) <- sample(paste0("col", seq_len(ncol(expr))))
 
@@ -42,7 +43,7 @@ for (method_name in names(methods)) {
     v3 <- as.vector(as.matrix(dist(out3)))
 
     # even though the number of dimensions is different, one would expect the correlation between each execution to be somewhat greater than zero
-    expect_true(all(cor(cbind(v1, v2, v3)) > .1))
+    expect_true(all(cor(cbind(v1, v2, v3)) > .5))
     dev.off()
   })
 }
