@@ -6,12 +6,14 @@
 \usage{
 dimred_landmark_mds(x, ndim = 2, distance_metric = c("spearman",
   "euclidean", "manhattan", "angular", "pearson", "kendall"),
-  landmark_method = c("naive"), num_landmarks = 100)
+  num_landmarks = 500)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
 
 \item{ndim}{The number of dimensions}
+
+\item{distance_metric}{Which distance function to use. Must be one of: \code{"spearman"}, \code{"pearson"}, \code{"kendall"}, \code{"angular"}, \code{"euclidean"} or \code{"manhattan"}.}
 }
 \description{
 Landmark MDS

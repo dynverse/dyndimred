@@ -1,15 +1,15 @@
 #' Landmark MDS
 #' @inheritParams dimred
+#'
+#' @param distance_metric Which distance function to use. Must be one of: `"spearman"`, `"pearson"`, `"kendall"`, `"angular"`, `"euclidean"` or `"manhattan"`.
 #' @export
 dimred_landmark_mds <- function(
   x,
   ndim = 2,
   distance_metric,
-  landmark_method = c("naive"),
-  num_landmarks = 100
+  num_landmarks = 500
 ) {
   distance_metric <- match.arg(distance_metric)
-  landmark_method <- match.arg(landmark_method)
 
   # fetch distance function
   dist_fun <- dynutils::list_distance_metrics()[[distance_metric]]
@@ -18,7 +18,7 @@ dimred_landmark_mds <- function(
   lm_out <- .lmds_landmark_selection(
     x = x,
     dist_fun = dist_fun,
-    landmark_method = landmark_method,
+    landmark_method = "naive",
     num_landmarks = num_landmarks
   )
 
