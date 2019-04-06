@@ -2,6 +2,7 @@
 #' @inheritParams dimred
 #'
 #' @param distance_metric Which distance function to use. Must be one of: `"spearman"`, `"pearson"`, `"kendall"`, `"angular"`, `"euclidean"` or `"manhattan"`.
+#' @param num_landmarks The number of landmarks to use,
 #' @export
 dimred_landmark_mds <- function(
   x,
