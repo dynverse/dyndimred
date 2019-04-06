@@ -78,6 +78,9 @@ formals(dimred_landmark_mds)$distance_metric <-
 # @importFrom irlba partial_eigen
 # @importFrom dynutils scale_uniform
 .lmds_cmdscale <- function(dist_lm, dist_2lm, ndim = 3, rescale = TRUE) {
+  required_check("irlba")
+  requireNamespace("irlba")
+
   x <- as.matrix(dist_lm^2)
   storage.mode(x) <- "double"
 
