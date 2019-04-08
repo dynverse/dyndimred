@@ -25,13 +25,13 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-  dynutils (>= 1.0.2.9000)
+  dynutils (>= 1.0.2.9000),
+  irlba
 Suggests: 
   testthat,
   destiny,
   diffusionMap,
   fastICA,
-  irlba,
   lle,
   MASS,
   Rtsne,
