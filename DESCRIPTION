@@ -1,20 +1,20 @@
 Package: dyndimred
 Type: Package
-Title: Dimensionality reduction methods in a common format
+Title: Dimensionality Reduction Methods in a Common Format
 Version: 1.0.1
 Authors@R: c(
     person(
       "Robrecht", 
       "Cannoodt", 
       email = "rcannood@gmail.com", 
-      role = c("aut", "cre"),
+      role = c("aut"),
       comment = c(ORCID = "0000-0003-3641-729X", github = "rcannood")
     ),
     person(
       "Wouter", 
       "Saelens", 
       email = "wouter.saelens@gmail.com", 
-      role = c("aut"), 
+      role = c("aut", "cre"), 
       comment = c(ORCID = "0000-0002-7114-6248", github = "zouter")
     )
   )
@@ -26,7 +26,7 @@ License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-  dynutils (>= 1.0.3),
+  dynutils (>= 1.0.2.9000),
   irlba
 Suggests: 
   testthat,
