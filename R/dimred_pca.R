@@ -1,7 +1,7 @@
 #' @rdname dimred
 #' @export
 dimred_pca <- function(x, ndim = 2) {
-  required_check("irlba")
+  dynutils::install_packages("irlba")
   requireNamespace("irlba")
 
   space <- irlba::prcomp_irlba(x, n = ndim)$x

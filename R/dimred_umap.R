@@ -4,7 +4,7 @@
 #' @seealso [uwot::umap()]
 #' @export
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, init = "spectral", n_threads = 1) {
-  required_check("uwot")
+  dynutils::install_packages("uwot")
 
   if (dynutils::is_sparse(x)) {
     x <- as.matrix(x)

@@ -1,7 +1,7 @@
 #' @rdname dimred
 #' @export
 dimred_ica <- function(x, ndim = 3) {
-  required_check("fastICA")
+  dynutils::install_packages("fastICA")
 
   if (dynutils::is_sparse(x)) {
     x <- as.matrix(x)

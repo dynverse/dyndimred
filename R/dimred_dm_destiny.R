@@ -3,7 +3,7 @@
 #'
 #' @importFrom stats as.dist
 dimred_dm_destiny <- function(x, ndim = 2) {
-  required_check("destiny")
+  dynutils::install_packages("destiny")
 
   if (dynutils::is_sparse(x)) {
     x <- as.matrix(x)

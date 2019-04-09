@@ -1,7 +1,7 @@
 Package: dyndimred
 Type: Package
 Title: Dimensionality reduction methods in a common format
-Version: 1.0.0.9000
+Version: 1.0.1
 Authors@R: c(
     person(
       "Robrecht", 
@@ -20,12 +20,13 @@ Authors@R: c(
   )
 Description: 
   Provides a common interface for applying dimensionality reduction methods,
-  such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap.
+  such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap. Has built-in support
+  for sparse matrices.
 License: GPL-3
 Encoding: UTF-8
 LazyData: true
 Imports:
-  dynutils (>= 1.0.2.9000),
+  dynutils (>= 1.0.3),
   irlba
 Suggests: 
   testthat,
@@ -38,8 +39,7 @@ Suggests:
   smacof,
   tsne,
   uwot
-Remotes: 
-    jlmelville/uwot,
-    dynverse/dynutils@devel
+Remotes:  
+    dynverse/dynutils@master
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

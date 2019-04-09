@@ -1,7 +1,7 @@
 #' @rdname dimred
 #' @export
 dimred_lle <- function(x, ndim = 3) {
-  required_check("lle")
+  dynutils::install_packages("lle")
 
   if (dynutils::is_sparse(x)) {
     x <- as.matrix(x)
