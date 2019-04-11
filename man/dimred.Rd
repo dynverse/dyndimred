@@ -21,19 +21,23 @@ dimred(x, method, ndim, ...)
 
 dimred_dm_destiny(x, ndim = 2)
 
-dimred_dm_diffusionmap(x, ndim = 2)
+dimred_dm_diffusionmap(x, ndim = 2, distance_metric)
 
 dimred_ica(x, ndim = 3)
 
 dimred_lle(x, ndim = 3)
 
-dimred_mds(x, ndim = 2)
+dimred_mds(x, ndim = 2, distance_metric = c("cosine", "pearson",
+  "spearman", "euclidean", "manhattan"))
 
-dimred_mds_isomds(x, ndim = 2)
+dimred_mds_isomds(x, ndim = 2, distance_metric = c("cosine", "pearson",
+  "spearman", "euclidean", "manhattan"))
 
-dimred_mds_sammon(x, ndim = 2)
+dimred_mds_sammon(x, ndim = 2, distance_metric = c("cosine", "pearson",
+  "spearman", "euclidean", "manhattan"))
 
-dimred_mds_smacof(x, ndim = 2)
+dimred_mds_smacof(x, ndim = 2, distance_metric = c("cosine", "pearson",
+  "spearman", "euclidean", "manhattan"))
 
 dimred_pca(x, ndim = 2)
 

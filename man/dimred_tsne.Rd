@@ -5,7 +5,8 @@
 \title{tSNE}
 \usage{
 dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
-  initial_dims = 50)
+  initial_dims = 50, distance_metric = c("cosine", "pearson",
+  "spearman", "euclidean", "manhattan"))
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}

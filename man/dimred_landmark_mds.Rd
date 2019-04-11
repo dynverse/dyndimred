@@ -4,9 +4,8 @@
 \alias{dimred_landmark_mds}
 \title{Landmark MDS}
 \usage{
-dimred_landmark_mds(x, ndim = 2, distance_metric = c("spearman",
-  "euclidean", "manhattan", "angular", "pearson", "kendall"),
-  num_landmarks = 500)
+dimred_landmark_mds(x, ndim = 2, distance_metric = c("cosine",
+  "pearson", "spearman", "euclidean", "manhattan"), num_landmarks = 500)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}

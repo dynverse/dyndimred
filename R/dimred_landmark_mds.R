@@ -10,15 +10,10 @@ dimred_landmark_mds <- function(
   distance_metric,
   num_landmarks = 500
 ) {
-  distance_metric <- match.arg(distance_metric)
-
-  # fetch distance function
-  dist_fun <- dynutils::list_distance_metrics()[[distance_metric]]
-
   # select the landmarks
   lm_out <- .lmds_landmark_selection(
     x = x,
-    dist_fun = dist_fun,
+    distance_metric = distance_metric,
     landmark_method = "naive",
     num_landmarks = num_landmarks
   )
@@ -30,16 +25,11 @@ dimred_landmark_mds <- function(
     ndim = ndim,
     rescale = TRUE
   )
-  attr(space, "landmark_space") <- NULL
 
-  process_dimred(space)
+  .process_dimred(space)
 }
 
-formals(dimred_landmark_mds)$distance_metric <-
-  c(
-    "spearman",
-    setdiff(names(dynutils::list_distance_metrics()), "spearman")
-  )
+formals(dimred_landmark_mds)$distance_metric <- dynutils::list_distance_metrics()
 
 
 # Select landmarks
@@ -50,7 +40,7 @@ formals(dimred_landmark_mds)$distance_metric <-
 #   \item{\code{dist_lm}: Pairwise distance matrix between the selected landmarks}
 #   \item{\code{dist_2lm}: Distance matrix between the landmarks and all the samples in \code{x}}
 # }
-.lmds_landmark_selection <- function(x, dist_fun, landmark_method = c("naive"), num_landmarks) {
+.lmds_landmark_selection <- function(x, distance_metric, landmark_method = c("naive"), num_landmarks) {
   # parameter check on num_landmarks
   if (num_landmarks > nrow(x)) {
     num_landmarks <- nrow(x)
@@ -59,8 +49,8 @@ formals(dimred_landmark_mds)$distance_metric <-
   # naive -> just subsample the cell ids
   if (landmark_method == "naive") {
     ix_lm <- sample.int(nrow(x), num_landmarks)
-    dist_lm <- dist_fun(x[ix_lm, , drop = FALSE], x[ix_lm, , drop = FALSE])
-    dist_2lm <- dist_fun(x[ix_lm, , drop = FALSE], x)
+    dist_2lm <- as.matrix(calculate_distance(x[ix_lm, , drop = FALSE], x, metric = distance_metric))
+    dist_lm <- dist_2lm[, ix_lm, drop = FALSE]
   }
 
   list(
@@ -75,21 +65,11 @@ formals(dimred_landmark_mds)$distance_metric <-
 # @param dist_lm Pairwise distance matrix between the selected landmarks
 # @param dist_2lm Distance matrix between the landmarks and all the samples in original dataset
 #
-# @importFrom irlba partial_eigen
-# @importFrom dynutils scale_uniform
+#' @importFrom irlba partial_eigen
+#' @importFrom dynutils scale_uniform
 .lmds_cmdscale <- function(dist_lm, dist_2lm, ndim = 3, rescale = TRUE) {
-  dynutils::install_packages("irlba")
-
-  requireNamespace("irlba")
-
-  x <- as.matrix(dist_lm^2)
-  storage.mode(x) <- "double"
-
-  if (nrow(x) != ncol(x))
-    stop("dist_lm must be a square matrix")
-
   # short hand notations
-  x <- as.matrix(dist_lm^2)
+  x <- dist_lm^2
   n <- as.integer(nrow(x))
   N <- as.integer(ncol(dist_2lm))
 
@@ -97,6 +77,11 @@ formals(dimred_landmark_mds)$distance_metric <-
   mu_n <- rowMeans(x)
   mu <- mean(x)
   x_dc <- x - rep(mu_n, n) - rep(mu_n, each = n) + mu
+  # x_dc <-
+  #   sweep(
+  #     sweep(x, 1, mu_n, "-"),
+  #     2, mu_n, "-"
+  #   ) + mu
 
   # classical MDS on landmarks
   e <- irlba::partial_eigen(-x_dc / 2, symmetric = TRUE, n = ndim)
@@ -109,27 +94,15 @@ formals(dimred_landmark_mds)$distance_metric <-
     ev <- ev[ev > 0]
     ndim <- ndim1
   }
-  Slm <- evec * rep(sqrt(ev), each = n)
 
   # distance-based triangulation
   points_inv <- evec / rep(sqrt(ev), each = n)
   S <- (-t(dist_2lm - rep(mu_n, each = N)) / 2) %*% points_inv
 
-  # set dimension names
-  rn_lm <- rownames(dist_lm)
-  rn_all <- colnames(dist_2lm)
-  cn <- paste0("Comp", seq_len(ndim))
-  dimnames(Slm) <- list(rn_lm, cn)
-  dimnames(S) <- list(rn_all, cn)
-
   # rescale if necessary
   if (rescale) {
-    Slm <- dynutils::scale_uniform(Slm)
     S <- dynutils::scale_uniform(S)
   }
-
-  # output
-  attr(S, "landmark_space") <- Slm
 
   S
 }

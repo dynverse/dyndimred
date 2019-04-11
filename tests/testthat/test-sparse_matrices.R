@@ -1,17 +1,6 @@
 context("Dimred with sparse matrices")
 
-generate_expr <- function(nrow, ncol) {
-  i <- unlist(lapply(seq_len(nrow), function(i) rep(i, sample(25:50, 1))))
-  j <- sample(seq_len(ncol), length(i), replace = TRUE)
-  expr <- Matrix::sparseMatrix(i = i, j = j, x = runif(length(i)))
-
-  rownames(expr) <- sample(paste0("cell", seq_len(nrow(expr))))
-  colnames(expr) <- sample(paste0("gene", seq_len(ncol(expr))))
-
-  expr
-}
-
-small_expr <- generate_expr(nrow = 200, ncol = 500)
+small_expr <- abs(Matrix::rsparsematrix(300, 200, .5))
 
 methods <- list_dimred_methods()
 
@@ -37,10 +26,9 @@ for (method_name in names(methods)) {
     dev.off()
   })
 }
+large_expr <- abs(Matrix::rsparsematrix(20000, 10000, .05))
 
-large_expr <- generate_expr(nrow = 20000, ncol = 10000)
-
-should_scale <- c("pca") # landmark_mds, umap
+should_scale <- c("pca", "landmark_mds")
 for (method_name in should_scale) {
   test_that(paste0("Perform large dimred ", method_name), {
     method_fun <- methods[[method_name]]

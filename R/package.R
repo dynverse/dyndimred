@@ -3,7 +3,8 @@
 #' Provides a common interface for applying common dimensionality reduction methods,
 #' Such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap.
 #'
-#' @importFrom dynutils correlation_distance install_packages
+#' @importFrom dynutils calculate_distance list_distance_metrics install_packages is_sparse
+#' @importFrom stats as.dist
 #'
 #' @docType package
 #' @name dyndimred
