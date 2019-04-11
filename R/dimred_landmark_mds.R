@@ -64,10 +64,13 @@ formals(dimred_landmark_mds)$distance_metric <- dynutils::list_distance_metrics(
 #
 # @param dist_lm Pairwise distance matrix between the selected landmarks
 # @param dist_2lm Distance matrix between the landmarks and all the samples in original dataset
+# @param ndim The number of dimensions
+# @param rescale Whether or not to rescale the final dimensionality reduction (recommended)
+# @param ... Extra params to pass to [irlba::partial_eigen()]
 #
 #' @importFrom irlba partial_eigen
 #' @importFrom dynutils scale_uniform
-.lmds_cmdscale <- function(dist_lm, dist_2lm, ndim = 3, rescale = TRUE) {
+.lmds_cmdscale <- function(dist_lm, dist_2lm, ndim = 3, rescale = TRUE, ...) {
   # short hand notations
   x <- dist_lm^2
   n <- as.integer(nrow(x))
@@ -76,15 +79,14 @@ formals(dimred_landmark_mds)$distance_metric <- dynutils::list_distance_metrics(
   # double center data
   mu_n <- rowMeans(x)
   mu <- mean(x)
-  x_dc <- x - rep(mu_n, n) - rep(mu_n, each = n) + mu
-  # x_dc <-
-  #   sweep(
-  #     sweep(x, 1, mu_n, "-"),
-  #     2, mu_n, "-"
-  #   ) + mu
+  x_dc <-
+    sweep(
+      sweep(x, 1, mu_n, "-"),
+      2, mu_n, "-"
+    ) + mu
 
   # classical MDS on landmarks
-  e <- irlba::partial_eigen(-x_dc / 2, symmetric = TRUE, n = ndim)
+  e <- irlba::partial_eigen(-x_dc / 2, symmetric = TRUE, n = ndim, ...)
   ev <- e$values
   evec <- e$vectors
   ndim1 <- sum(ev > 0)
