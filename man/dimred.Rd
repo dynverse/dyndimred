@@ -21,7 +21,8 @@ dimred(x, method, ndim, ...)
 
 dimred_dm_destiny(x, ndim = 2)
 
-dimred_dm_diffusionmap(x, ndim = 2, distance_metric)
+dimred_dm_diffusionmap(x, ndim = 2, distance_metric = c("cosine",
+  "pearson", "spearman", "euclidean", "manhattan"))
 
 dimred_ica(x, ndim = 3)
 
