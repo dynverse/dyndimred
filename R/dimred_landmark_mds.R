@@ -1,19 +1,19 @@
 #' Landmark MDS
 #' @inheritParams dimred
 #'
-#' @param distance_metric Which distance function to use. Must be one of: `"spearman"`, `"pearson"`, `"kendall"`, `"angular"`, `"euclidean"` or `"manhattan"`.
+#' @param distance_method Which distance function to use. Must be one of: `"spearman"`, `"pearson"`, `"kendall"`, `"angular"`, `"euclidean"` or `"manhattan"`.
 #' @param num_landmarks The number of landmarks to use,
 #' @export
 dimred_landmark_mds <- function(
   x,
   ndim = 2,
-  distance_metric,
+  distance_method,
   num_landmarks = 500
 ) {
   # select the landmarks
   lm_out <- .lmds_landmark_selection(
     x = x,
-    distance_metric = distance_metric,
+    distance_method = distance_method,
     landmark_method = "naive",
     num_landmarks = num_landmarks
   )
@@ -29,7 +29,7 @@ dimred_landmark_mds <- function(
   .process_dimred(space)
 }
 
-formals(dimred_landmark_mds)$distance_metric <- dynutils::list_distance_metrics()
+formals(dimred_landmark_mds)$distance_method <- dynutils::list_distance_methods()
 
 
 # Select landmarks
@@ -40,7 +40,7 @@ formals(dimred_landmark_mds)$distance_metric <- dynutils::list_distance_metrics(
 #   \item{\code{dist_lm}: Pairwise distance matrix between the selected landmarks}
 #   \item{\code{dist_2lm}: Distance matrix between the landmarks and all the samples in \code{x}}
 # }
-.lmds_landmark_selection <- function(x, distance_metric, landmark_method = c("naive"), num_landmarks) {
+.lmds_landmark_selection <- function(x, distance_method, landmark_method = c("naive"), num_landmarks) {
   # parameter check on num_landmarks
   if (num_landmarks > nrow(x)) {
     num_landmarks <- nrow(x)
@@ -49,7 +49,7 @@ formals(dimred_landmark_mds)$distance_metric <- dynutils::list_distance_metrics(
   # naive -> just subsample the cell ids
   if (landmark_method == "naive") {
     ix_lm <- sample.int(nrow(x), num_landmarks)
-    dist_2lm <- as.matrix(calculate_distance(x[ix_lm, , drop = FALSE], x, metric = distance_metric))
+    dist_2lm <- as.matrix(calculate_distance(x[ix_lm, , drop = FALSE], x, method = distance_method))
     dist_lm <- dist_2lm[, ix_lm, drop = FALSE]
   }
 

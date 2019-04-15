@@ -5,7 +5,7 @@
 \title{tSNE}
 \usage{
 dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
-  initial_dims = 50, distance_metric = c("spearman", "pearson",
+  initial_dims = 50, distance_method = c("spearman", "pearson",
   "cosine", "euclidean", "manhattan"))
 }
 \arguments{

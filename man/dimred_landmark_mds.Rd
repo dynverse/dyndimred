@@ -4,7 +4,7 @@
 \alias{dimred_landmark_mds}
 \title{Landmark MDS}
 \usage{
-dimred_landmark_mds(x, ndim = 2, distance_metric = c("spearman",
+dimred_landmark_mds(x, ndim = 2, distance_method = c("spearman",
   "pearson", "cosine", "euclidean", "manhattan"), num_landmarks = 500)
 }
 \arguments{
@@ -12,7 +12,7 @@ dimred_landmark_mds(x, ndim = 2, distance_metric = c("spearman",
 
 \item{ndim}{The number of dimensions}
 
-\item{distance_metric}{Which distance function to use. Must be one of: \code{"spearman"}, \code{"pearson"}, \code{"kendall"}, \code{"angular"}, \code{"euclidean"} or \code{"manhattan"}.}
+\item{distance_method}{Which distance function to use. Must be one of: \code{"spearman"}, \code{"pearson"}, \code{"kendall"}, \code{"angular"}, \code{"euclidean"} or \code{"manhattan"}.}
 
 \item{num_landmarks}{The number of landmarks to use,}
 }
