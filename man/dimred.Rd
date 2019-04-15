@@ -52,6 +52,8 @@ list_dimred_methods()
 \item{ndim}{The number of dimensions}
 
 \item{...}{Any arguments to be passed to the dimensionality reduction method}
+
+\item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
 }
 \description{
 Perform simple dimensionality reduction

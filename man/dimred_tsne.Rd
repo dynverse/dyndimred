@@ -18,6 +18,8 @@ dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
 \item{theta}{numeric; Speed/accuracy trade-off (increase for less accuracy), set to 0.0 for exact TSNE (default: 0.5)}
 
 \item{initial_dims}{integer; the number of dimensions that should be retained in the initial PCA step (default: 50)}
+
+\item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
 }
 \description{
 tSNE
