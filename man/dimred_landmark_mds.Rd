@@ -12,7 +12,7 @@ dimred_landmark_mds(x, ndim = 2, distance_method = c("spearman",
 
 \item{ndim}{The number of dimensions}
 
-\item{distance_method}{Which distance function to use. Must be one of: \code{"spearman"}, \code{"pearson"}, \code{"kendall"}, \code{"angular"}, \code{"euclidean"} or \code{"manhattan"}.}
+\item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
 
 \item{num_landmarks}{The number of landmarks to use,}
 }
