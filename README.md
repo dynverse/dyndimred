@@ -16,11 +16,16 @@ changes.
 
 <!-- This section gets automatically generated from inst/NEWS.md, and also generates inst/NEWS -->
 
+### Recent changes in dyndimred 1.1.0 (02-05-2019)
+
+  - dyndimred works with sparse (distance) matrices when appropriate
+    through dynutils
+
 ### Recent changes in dyndimred 1.0.0 (29-03-2019)
 
-  - Initial release of dyndimred, includes tsne, umap, lle, (l)mds, pca
-    and diffusion
-map
+  - Initial release of dyndimred, includes tsne, umap, lle, pca,
+    diffusion map, mds, landmark
+mds
 
 ## Dynverse dependencies
 

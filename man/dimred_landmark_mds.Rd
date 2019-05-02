@@ -4,23 +4,18 @@
 \alias{dimred_landmark_mds}
 \title{Landmark MDS}
 \usage{
-dimred_landmark_mds(x, ndim = 2, landmark_method = "naive",
-  num_landmarks = 100, rescale = T)
+dimred_landmark_mds(x, ndim = 2, distance_method = c("pearson",
+  "spearman", "cosine", "euclidean", "manhattan"), num_landmarks = 500)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
 
 \item{ndim}{The number of dimensions}
 
-\item{landmark_method}{Must be "naive" for now. Other landmark methods will be supported in the future.}
+\item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
 
-\item{num_landmarks}{the number of landmarks to be selected.}
-
-\item{rescale}{A logical indicating whether or not the returned space should be rescaled and centered.}
+\item{num_landmarks}{The number of landmarks to use,}
 }
 \description{
 Landmark MDS
-}
-\seealso{
-\code{\link[SCORPIUS:reduce_dimensionality]{SCORPIUS::reduce_dimensionality()}}
 }
