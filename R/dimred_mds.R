@@ -1,6 +1,10 @@
 #' @rdname dimred
 #' @export
-dimred_mds <- function(x, ndim = 2) {
-  space <- stats::cmdscale(dynutils::correlation_distance(x), k = ndim)
-  process_dimred(space)
+dimred_mds <- function(x, ndim = 2, distance_method) {
+  dis <- calculate_distance(x, method = distance_method)
+  space <- stats::cmdscale(as.dist(dis), k = ndim)
+
+  .process_dimred(space)
 }
+
+formals(dimred_mds)$distance_method <- dynutils::list_distance_methods()

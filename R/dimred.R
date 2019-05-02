@@ -2,6 +2,7 @@
 #'
 #' @param x Log transformed expression data, with rows as cells and columns as features
 #' @param method The name of the dimensionality reduction method to use
+#' @param distance_method The name of the distance metric, see [dynutils::calculate_distance]
 #' @param ndim The number of dimensions
 #' @param ... Any arguments to be passed to the dimensionality reduction method
 #'

@@ -1,15 +1,21 @@
 #' @rdname dimred
 #' @export
 dimred_lle <- function(x, ndim = 3) {
-  required_check("lle")
+  install_packages("lle")
 
-  if (dynutils::is_sparse(x)) {
+  if (is_sparse(x)) {
     x <- as.matrix(x)
   }
 
   requireNamespace("lle")
-  k <- lle::calc_k(t(scale(t(x))), ndim)
+
+  x_sc <- t(scale(t(x)))
+
+  k <- lle::calc_k(x_sc, m = ndim)
+
   k <- k$k[which.min(k$rho)]
-  space <- lle::lle(t(scale(t(x))), ndim, k)$Y
-  process_dimred(space, rownames(x))
+
+  space <- lle::lle(x_sc, m = ndim, k = k)$Y
+
+  .process_dimred(space, rownames(x))
 }
