@@ -39,7 +39,7 @@ Suggests:
   smacof,
   tsne,
   uwot
-Remotes:  
+Remotes:
     dynverse/dynutils@master
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
