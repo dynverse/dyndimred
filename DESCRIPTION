@@ -27,6 +27,7 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   dynutils (>= 1.0.3),
+  Matrix,
   irlba
 Suggests: 
   testthat,
