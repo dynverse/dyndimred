@@ -20,7 +20,7 @@ Authors@R: c(
   )
 Description: 
   Provides a common interface for applying dimensionality reduction methods,
-  such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap. Has built-in support
+  such as PCA, 'ICA', diffusion maps, 'LLE', 't-SNE', and 'umap'. Has built-in support
   for sparse matrices.
 License: GPL-3
 Encoding: UTF-8

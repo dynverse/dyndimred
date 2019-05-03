@@ -3,3 +3,4 @@
 ^\.travis
 ^\.git$
 ^README
+cran-comments.md
