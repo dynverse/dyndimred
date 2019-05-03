@@ -1,6 +1,6 @@
 context("Dimred for expression")
 
-generate_dataset <- function(type = c("splines", "polynomial"), num_samples = 400, num_genes = 500) {
+generate_dataset <- function(type = c("splines", "polynomial"), num_samples = 100, num_genes = 100) {
   type <- match.arg(type)
   x <- seq(-1, 1, length.out = num_samples)
   switch(
@@ -33,7 +33,7 @@ generate_dataset <- function(type = c("splines", "polynomial"), num_samples = 40
 }
 
 set.seed(1)
-expr <- generate_dataset(num_samples = 400, num_genes = 200)
+expr <- generate_dataset(num_samples = 100, num_genes = 100)
 
 methods <- list_dimred_methods()
 

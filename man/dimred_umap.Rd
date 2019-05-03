@@ -45,6 +45,10 @@ by RcppParallel. For nearest neighbor search, only applies if
 \description{
 UMAP
 }
+\examples{
+dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+dimred_umap(dataset, ndim = 3)
+}
 \seealso{
 \code{\link[uwot:umap]{uwot::umap()}}
 }

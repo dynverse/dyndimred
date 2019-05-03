@@ -6,6 +6,12 @@
 #' @param ndim The number of dimensions
 #' @param ... Any arguments to be passed to the dimensionality reduction method
 #'
+#' @examples
+#' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+#' dimred(dataset, "pca", ndim = 3)
+#' dimred_pca(dataset)
+#' dimred_mds(dataset)
+#'
 #' @export
 dimred <- function(x, method, ndim, ...) {
   methods <- list_dimred_methods()

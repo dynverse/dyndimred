@@ -3,6 +3,10 @@
 #' @inheritParams uwot::umap
 #' @seealso [uwot::umap()]
 #' @export
+#'
+#' @examples
+#' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+#' dimred_umap(dataset, ndim = 3)
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, init = "spectral", n_threads = 1) {
   dynutils::install_packages("uwot")
   requireNamespace("uwot")

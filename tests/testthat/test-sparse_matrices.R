@@ -1,6 +1,6 @@
 context("Dimred with sparse matrices")
 
-small_expr <- abs(Matrix::rsparsematrix(300, 200, .5))
+small_expr <- abs(Matrix::rsparsematrix(100, 100, .5))
 
 methods <- list_dimred_methods()
 
@@ -29,7 +29,7 @@ for (method_name in names(methods)) {
 
   })
 }
-large_expr <- abs(Matrix::rsparsematrix(20000, 10000, .05))
+large_expr <- abs(Matrix::rsparsematrix(2000, 1000, .05))
 
 should_scale <- c("pca", "landmark_mds")
 for (method_name in should_scale) {

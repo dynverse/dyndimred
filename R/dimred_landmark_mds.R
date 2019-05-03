@@ -3,6 +3,10 @@
 #'
 #' @param num_landmarks The number of landmarks to use,
 #' @export
+#'
+#' @examples
+#' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+#' dimred_landmark_mds(dataset, ndim = 3)
 dimred_landmark_mds <- function(
   x,
   ndim = 2,

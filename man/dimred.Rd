@@ -58,3 +58,10 @@ list_dimred_methods()
 \description{
 Perform simple dimensionality reduction
 }
+\examples{
+dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+dimred(dataset, "pca", ndim = 3)
+dimred_pca(dataset)
+dimred_mds(dataset)
+
+}

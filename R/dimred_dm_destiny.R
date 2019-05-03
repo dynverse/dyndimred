@@ -1,6 +1,5 @@
 #' @rdname dimred
 #' @export
-#'
 dimred_dm_destiny <- function(x, ndim = 2) {
   install_packages("destiny")
   requireNamespace("destiny")
