@@ -3,6 +3,10 @@
 #'
 #' @param num_landmarks The number of landmarks to use,
 #' @export
+#'
+#' @examples
+#' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+#' dimred_landmark_mds(dataset, ndim = 3)
 dimred_landmark_mds <- function(
   x,
   ndim = 2,
@@ -50,6 +54,8 @@ formals(dimred_landmark_mds)$distance_method <- dynutils::list_distance_methods(
     ix_lm <- sample.int(nrow(x), num_landmarks)
     dist_2lm <- as.matrix(calculate_distance(x[ix_lm, , drop = FALSE], x, method = distance_method))
     dist_lm <- dist_2lm[, ix_lm, drop = FALSE]
+  } else {
+    stop("landmark_method must be one of c(\"naive\").")
   }
 
   list(

@@ -24,6 +24,10 @@ dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
 \description{
 tSNE
 }
+\examples{
+dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
+dimred_tsne(dataset, ndim = 3)
+}
 \seealso{
 \code{\link[Rtsne:Rtsne]{Rtsne::Rtsne()}}
 }

@@ -1,7 +1,10 @@
 #' @rdname dimred
 #' @export
 dimred_mds_isomds <- function(x, ndim = 2, distance_method) {
-  dynutils::install_packages(c("MASS"), "dyndimred")
+  # `install_packages()` checks whether the required package is installed
+  # and will prompt the user about whether it should be installed
+  install_packages("MASS", "dyndimred")
+  requireNamespace("MASS")
 
   dis <- calculate_distance(x, method = distance_method)
   space <- MASS::isoMDS(as.dist(dis), k = ndim)$points
