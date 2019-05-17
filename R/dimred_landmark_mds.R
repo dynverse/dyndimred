@@ -54,6 +54,8 @@ formals(dimred_landmark_mds)$distance_method <- dynutils::list_distance_methods(
     ix_lm <- sample.int(nrow(x), num_landmarks)
     dist_2lm <- as.matrix(calculate_distance(x[ix_lm, , drop = FALSE], x, method = distance_method))
     dist_lm <- dist_2lm[, ix_lm, drop = FALSE]
+  } else {
+    stop("landmark_method must be one of c(\"naive\").")
   }
 
   list(
