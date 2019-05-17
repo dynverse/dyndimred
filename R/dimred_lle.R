@@ -1,6 +1,8 @@
 #' @rdname dimred
 #' @export
 dimred_lle <- function(x, ndim = 3) {
+  # `install_packages()` checks whether the required package is installed
+  # and will prompt the user about whether it should be installed
   install_packages("lle")
 
   if (is_sparse(x)) {

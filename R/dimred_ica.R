@@ -1,7 +1,9 @@
 #' @rdname dimred
 #' @export
 dimred_ica <- function(x, ndim = 3) {
-  dynutils::install_packages("fastICA")
+  # `install_packages()` checks whether the required package is installed
+  # and will prompt the user about whether it should be installed
+  install_packages("fastICA")
   requireNamespace("fastICA")
 
   if (is_sparse(x)) {
