@@ -13,8 +13,8 @@ Changes made:
 
 # Test environments
 
-* local Fedora 28 installation, R 3.6
-* ubuntu 14.04 (on travis-ci), R 3.5.2
+* local Fedora 28 installation, R 3.6.0
+* ubuntu 14.04.5 LTS (on travis-ci), R 3.6.0
 * win-builder (devel and release)
 
 # R CMD check results
