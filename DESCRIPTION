@@ -20,9 +20,9 @@ Authors@R: c(
   )
 Description: 
   Provides a common interface for applying dimensionality reduction methods,
-  such as PCA, Independent Component Analysis, diffusion maps, 
-  Locally-Linear Embedding, t-distributed Stochastic Neighbor Embedding, 
-  and Uniform Manifold Approximation and Projection. 
+  such as Principal Component Analysis ('PCA'), Independent Component Analysis ('ICA'), diffusion maps, 
+  Locally-Linear Embedding ('LLE'), t-distributed Stochastic Neighbor Embedding ('t-SNE'), 
+  and Uniform Manifold Approximation and Projection ('UMAP'). 
   Has built-in support for sparse matrices.
 License: GPL-3
 Encoding: UTF-8
