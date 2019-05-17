@@ -1,16 +1,19 @@
 # Resubmission
 
-This is a resubmission. In this version I have:
+Changes made:
 
-* Explained all acronyms in the DESCRIPTION file
+* Clarified the abbreviation used in the description (PCA).
 
-* Added small executable examples to all Rd files
-
-* Reduced the testing times so that it is less than 10 minutes.
+* Clarified usage of the `install_packages()` function in 
+  some of the functions. This will check whether a package is 
+  installed and will prompt the user if the package should be
+  installed, if it is not.
+  
+* Extended examples to include all functions, not just a few examples.
 
 # Test environments
 
-* local Fedora 28 installation, R 3.5.2
+* local Fedora 28 installation, R 3.6
 * ubuntu 14.04 (on travis-ci), R 3.5.2
 * win-builder (devel and release)
 
