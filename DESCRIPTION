@@ -38,7 +38,6 @@ Suggests:
   MASS,
   Rtsne,
   smacof,
-  tsne,
   uwot
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
