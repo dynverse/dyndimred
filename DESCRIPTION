@@ -1,7 +1,7 @@
 Package: dyndimred
 Type: Package
 Title: Dimensionality Reduction Methods in a Common Format
-Version: 1.0.2.9000
+Version: 1.0.2
 Authors@R: c(
     person(
       "Robrecht", "Cannoodt", 
@@ -39,8 +39,8 @@ Suggests:
   Rtsne,
   smacof,
   uwot
-Remotes:
-  dynverse/dynutils@devel
+Remotes: 
+    dynverse/dynutils@master
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
 URL: http://github.com/dynverse/dyndimred
