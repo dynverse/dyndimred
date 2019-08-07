@@ -59,6 +59,7 @@ list_dimred_methods()
 Perform simple dimensionality reduction
 }
 \examples{
+library(Matrix)
 x <- abs(Matrix::rsparsematrix(100, 100, .5))
 dimred(x, "pca", ndim = 3)
 dimred(x, "ica", ndim = 3)
