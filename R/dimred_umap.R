@@ -5,6 +5,7 @@
 #' @export
 #'
 #' @examples
+#' library(Matrix)
 #' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
 #' dimred_umap(dataset, ndim = 3)
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, init = "spectral", n_threads = 1) {

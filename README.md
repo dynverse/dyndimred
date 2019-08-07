@@ -1,8 +1,11 @@
 dyndimred
 ================
 
-<a href="https://travis-ci.org/dynverse/dyndimred"><img src="https://travis-ci.org/dynverse/dyndimred.svg" align="left"></a>
+[![Build
+Status](https://travis-ci.org/dynverse/dyndimred.svg?branch=master)](https://travis-ci.org/dynverse/dyndimred)
 [**ℹ️ Tutorials**](https://dynverse.org)
+
+# `dyndimred`: Dimensionality Reduction Methods in a Common Format
 
 Provides a common interface for applying dimensionality reduction
 methods, such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap. Just
@@ -16,16 +19,15 @@ changes.
 
 <!-- This section gets automatically generated from inst/NEWS.md, and also generates inst/NEWS -->
 
-### Recent changes in dyndimred 1.1.0 (02-05-2019)
+### Recent changes in dyndimred 1.0.2
 
-  - dyndimred works with sparse (distance) matrices when appropriate
-    through dynutils
+  - MINOR CHANGES: Move Matrix to Suggests.
 
-### Recent changes in dyndimred 1.0.0 (29-03-2019)
+### Recent changes in dyndimred 1.0.1 (02-05-2019)
 
-  - Initial release of dyndimred, includes tsne, umap, lle, pca,
-    diffusion map, mds, landmark
-mds
+  - MINOR CHANGES: dyndimred works with sparse (distance) matrices when
+    appropriate through
+dynutils.
 
 ## Dynverse dependencies
 
