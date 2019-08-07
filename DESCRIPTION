@@ -1,7 +1,7 @@
 Package: dyndimred
 Type: Package
 Title: Dimensionality Reduction Methods in a Common Format
-Version: 1.0.1
+Version: 1.0.2
 Authors@R: c(
     person(
       "Robrecht", "Cannoodt", 
@@ -27,7 +27,6 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   dynutils (>= 1.0.3),
-  Matrix,
   irlba
 Suggests: 
   testthat,
@@ -36,11 +35,13 @@ Suggests:
   fastICA,
   lle,
   MASS,
+  Matrix,
   Rtsne,
   smacof,
-  tsne,
   uwot
 Remotes: 
     dynverse/dynutils@master
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
+URL: http://github.com/dynverse/dyndimred
+BugReports: https://github.com/dynverse/dyndimred/issues

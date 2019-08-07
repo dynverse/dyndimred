@@ -10,6 +10,8 @@ Changes made:
   installed, if it is not.
   
 * Extended examples to include all functions, not just a few examples.
+  The examples are not run as it would run for too long. However, each 
+  of the functions are definitely being tested in the unit tests.
 
 # Test environments
 

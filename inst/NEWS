@@ -1,6 +1,10 @@
-dyndimred 1.1.0 (02-05-2019)
+dyndimred 1.0.2
 
-* dyndimred works with sparse (distance) matrices when appropriate through dynutils
+* MINOR CHANGES: Move Matrix to Suggests.
+
+dyndimred 1.0.1 (02-05-2019)
+
+* MINOR CHANGES: dyndimred works with sparse (distance) matrices when appropriate through dynutils.
 
 dyndimred 1.0.0 (29-03-2019)
 
