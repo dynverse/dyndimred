@@ -2,5 +2,5 @@
 ^\.Rproj\.user$
 ^\.travis
 ^\.git$
-^README
+^README\.Rmd$
 cran-comments.md

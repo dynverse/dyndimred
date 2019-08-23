@@ -63,6 +63,7 @@ disk in the location determined by \code{\link[base]{tempfile}}.}
 UMAP
 }
 \examples{
+library(Matrix)
 dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
 dimred_umap(dataset, ndim = 3)
 }

@@ -5,6 +5,7 @@
 #' @export
 #'
 #' @examples
+#' library(Matrix)
 #' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
 #' dimred_landmark_mds(dataset, ndim = 3)
 dimred_landmark_mds <- function(

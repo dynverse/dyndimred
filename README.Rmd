@@ -3,7 +3,25 @@ title: "dyndimred"
 output: github_document
 ---
 
-<a href="https://travis-ci.org/dynverse/dyndimred"><img src="https://travis-ci.org/dynverse/dyndimred.svg" align="left"></a>  [**ℹ️ Tutorials**](https://dynverse.org) 
+[![Build Status](https://travis-ci.org/dynverse/dyndimred.svg?branch=master)](https://travis-ci.org/dynverse/dyndimred) 
+[**ℹ️ Tutorials**](https://dynverse.org) 
+
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  out.width = "100%",
+  fig.path = "man/figures/",
+  message = FALSE,
+  dpi = 300
+)
+set.seed(1)
+submission_to_cran <- FALSE
+library(tidyverse)
+```
+
+# `dyndimred`:  Dimensionality Reduction Methods in a Common Format
 
 Provides a common interface for applying dimensionality reduction methods,
 such as PCA, ICA, diffusion maps, LLE, t-SNE, and umap. Just plug in a matrix
@@ -12,7 +30,10 @@ and get a dimensionality reduction!
 
 ## Latest changes
 
-Check out `news(package = "dyndimred")` or [NEWS.md](inst/NEWS.md) for a full list of changes.
+```{r include = FALSE}
+show_link <- ifelse(submission_to_cran, "", "or [NEWS.md](inst/NEWS.md) ")
+```
+Check out `news(package = "dyndimred")` `r show_link` for a full list of changes.
 
 <!-- This section gets automatically generated from inst/NEWS.md, and also generates inst/NEWS -->
 

@@ -1,22 +1,11 @@
-# Resubmission
+# dyndimred 1.0.2
 
-Changes made:
-
-* Clarified the abbreviation used in the description (PCA).
-
-* Clarified usage of the `install_packages()` function in 
-  some of the functions. This will check whether a package is 
-  installed and will prompt the user if the package should be
-  installed, if it is not.
-  
-* Extended examples to include all functions, not just a few examples.
-  The examples are not run as it would run for too long. However, each 
-  of the functions are definitely being tested in the unit tests.
+Minor changes to the DESCRIPTION.
 
 # Test environments
 
-* local Fedora 28 installation, R 3.6.0
-* ubuntu 14.04.5 LTS (on travis-ci), R 3.6.0
+* local Fedora 30 installation, R 3.6.0
+* ubuntu 16.04.5 LTS (on travis-ci), R 3.6.0
 * win-builder (devel and release)
 
 # R CMD check results

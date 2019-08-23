@@ -20,6 +20,7 @@ dimred_landmark_mds(x, ndim = 2, distance_method = c("pearson",
 Landmark MDS
 }
 \examples{
+library(Matrix)
 dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
 dimred_landmark_mds(dataset, ndim = 3)
 }
