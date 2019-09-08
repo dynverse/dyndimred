@@ -13,8 +13,8 @@ plug in a matrix and get a dimensionality reduction\!
 
 ## Latest changes
 
-Check out `news(package = "dyndimred")` or [NEWS.md](inst/NEWS.md) for a
-full list of
+Check out `news(package = "dyndimred")` or [NEWS.md](NEWS.md) for a full
+list of
 changes.
 
 <!-- This section gets automatically generated from inst/NEWS.md, and also generates inst/NEWS -->
