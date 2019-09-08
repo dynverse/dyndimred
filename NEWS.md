@@ -1,4 +1,8 @@
-# dyndimred 1.0.2
+# dyndimred 1.0.3
+
+* MINOR CHANGES: The code for landmark mds has been moved to its own separate package, `lmds`.
+
+# dyndimred 1.0.2 (07-08-2018)
 
 * MINOR CHANGES: Move Matrix to Suggests.
 

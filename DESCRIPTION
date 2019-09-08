@@ -27,7 +27,8 @@ Encoding: UTF-8
 LazyData: true
 Imports:
   dynutils (>= 1.0.3),
-  irlba
+  irlba,
+  lmds
 Suggests: 
   testthat,
   destiny,
@@ -40,6 +41,7 @@ Suggests:
   smacof,
   uwot
 Remotes:  
+    dynverse/lmds,
     dynverse/dynutils@devel
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)

@@ -8,11 +8,11 @@ dimred_landmark_mds(x, ndim = 2, distance_method = c("pearson",
   "spearman", "cosine", "euclidean", "manhattan"), num_landmarks = 500)
 }
 \arguments{
-\item{x}{Log transformed expression data, with rows as cells and columns as features}
+\item{x}{A matrix, optionally sparse.}
 
 \item{ndim}{The number of dimensions}
 
-\item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
+\item{distance_method}{The distance metric to use. Options are "euclidean" (default), "pearson", "spearman", "cosine", "manhattan".}
 
 \item{num_landmarks}{The number of landmarks to use,}
 }
