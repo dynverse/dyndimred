@@ -41,7 +41,7 @@ Suggests:
   smacof,
   uwot
 Remotes:  
-    dynverse/lmds,
+    dynverse/lmds@devel,
     dynverse/dynutils@devel
 RoxygenNote: 6.1.1
 Roxygen: list(markdown = TRUE)
