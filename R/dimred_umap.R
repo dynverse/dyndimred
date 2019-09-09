@@ -1,13 +1,6 @@
-#' UMAP
-#' @inheritParams dimred
-#' @inheritParams uwot::umap
-#' @seealso [uwot::umap()]
+#' @rdname dimred
 #' @export
-#'
-#' @examples
-#' library(Matrix)
-#' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
-#' dimred_umap(dataset, ndim = 3)
+#' @inheritParams uwot::umap
 dimred_umap <- function(x, ndim = 2, n_neighbors = 15L, init = "spectral", n_threads = 1) {
   # `install_packages()` checks whether the required package is installed
   # and will prompt the user about whether it should be installed
