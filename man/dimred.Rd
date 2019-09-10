@@ -49,8 +49,8 @@ dimred_mds_smacof(x, ndim = 2, distance_method = c("pearson",
 
 dimred_pca(x, ndim = 2)
 
-dimred_umap(x, ndim = 2, n_neighbors = 15L, init = "spectral",
-  n_threads = 1)
+dimred_umap(x, ndim = 2, distance_method = c("euclidean", "cosine",
+  "manhattan"), n_neighbors = 15L, init = "spectral", n_threads = 1)
 
 list_dimred_methods()
 }
