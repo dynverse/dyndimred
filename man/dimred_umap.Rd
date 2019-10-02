@@ -5,7 +5,7 @@
 \title{UMAP}
 \usage{
 dimred_umap(x, ndim = 2, n_neighbors = 15L, init = "spectral",
-  n_threads = 1)
+  pca_components = 50, n_threads = 1)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
@@ -52,6 +52,8 @@ logged to the console. The existence of multiple connected components
 implies that a global view of the data cannot be attained with this
 initialization. Either a PCA-based initialization or increasing the value of
 \code{n_neighbors} may be more appropriate.}
+
+\item{pca_components}{The number of pca components to use for UMAP. If NULL, PCA will not be performed first}
 
 \item{n_threads}{Number of threads to use (except during stochastic gradient
 descent). Default is half that recommended by RcppParallel. For
