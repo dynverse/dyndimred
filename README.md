@@ -13,21 +13,21 @@ plug in a matrix and get a dimensionality reduction\!
 
 ## Latest changes
 
-Check out `news(package = "dyndimred")` or [NEWS.md](inst/NEWS.md) for a
-full list of
+Check out `news(package = "dyndimred")` or [NEWS.md](NEWS.md) for a full
+list of
 changes.
 
 <!-- This section gets automatically generated from inst/NEWS.md, and also generates inst/NEWS -->
 
-### Recent changes in dyndimred 1.0.2
+### Recent changes in dyndimred 1.0.3
 
-  - MINOR CHANGES: Move Matrix to Suggests.
+  - MINOR CHANGES: The code for landmark mds has been moved to its own
+    separate package, `lmds`.
 
-### Recent changes in dyndimred 1.0.1 (02-05-2019)
+### Recent changes in dyndimred 1.0.2 (07-08-2018)
 
-  - MINOR CHANGES: dyndimred works with sparse (distance) matrices when
-    appropriate through
-dynutils.
+  - MINOR CHANGES: Move Matrix to
+Suggests.
 
 ## Dynverse dependencies
 
