@@ -19,9 +19,6 @@ dimred_umap <- function(x, ndim = 2, distance_method = c("euclidean", "cosine", 
     x <- dimred_pca(x, ndim = pca_components)
   }
 
-  if (is_sparse(x)) {
-    x <- as.matrix(x)
-  }
   distance_method <- match.arg(distance_method)
   space <- uwot::umap(
     x,
