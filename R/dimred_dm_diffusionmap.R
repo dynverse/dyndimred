@@ -12,6 +12,7 @@ dimred_dm_diffusionmap <- function(
   install_packages(dependencies = "diffusionMap", package = "dyndimred")
   requireNamespace("diffusionMap")
 
+  distance_method <- match.arg(distance_method)
   dist <- calculate_distance(x, method = distance_method)
 
   space <- diffusionMap::diffuse(as.dist(dist), neigen = ndim, delta = 10e-5)$X

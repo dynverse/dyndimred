@@ -6,6 +6,7 @@ dimred_mds_smacof <- function(x, ndim = 2, distance_method) {
   install_packages("smacof", "dyndimred")
   requireNamespace("smacof")
 
+  distance_method <- match.arg(distance_method)
   dis <- calculate_distance(x, method = distance_method)
   space <- smacof::mds(as.dist(dis), type = "ratio", ndim = ndim)$conf
 

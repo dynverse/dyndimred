@@ -6,6 +6,7 @@ dimred_mds_sammon <- function(x, ndim = 2, distance_method) {
   install_packages("MASS", "dyndimred")
   requireNamespace("MASS")
 
+  distance_method <- match.arg(distance_method)
   dis <- calculate_distance(x, method = distance_method)
   space <- MASS::sammon(as.dist(dis), k = ndim)$points
 

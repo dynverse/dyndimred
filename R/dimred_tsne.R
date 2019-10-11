@@ -14,6 +14,7 @@ dimred_tsne <- function(x, ndim = 2, perplexity = 30, theta = 0.5, initial_dims 
   install_packages("Rtsne")
   requireNamespace("Rtsne")
 
+  distance_method <- match.arg(distance_method)
   dis <- calculate_distance(x, method = distance_method)
 
   space <- Rtsne::Rtsne(
