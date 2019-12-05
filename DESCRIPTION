@@ -40,10 +40,10 @@ Suggests:
   Rtsne,
   smacof,
   uwot
-Remotes:  
+Remotes: 
     dynverse/lmds@devel,
     dynverse/dynutils@devel
-RoxygenNote: 6.1.1
+RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
 URL: http://github.com/dynverse/dyndimred
 BugReports: https://github.com/dynverse/dyndimred/issues

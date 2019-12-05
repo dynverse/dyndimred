@@ -4,9 +4,15 @@
 \alias{dimred_umap}
 \title{UMAP}
 \usage{
-dimred_umap(x, ndim = 2, distance_method = c("euclidean", "cosine",
-  "manhattan"), pca_components = 50, n_neighbors = 15L,
-  init = "spectral", n_threads = 1)
+dimred_umap(
+  x,
+  ndim = 2,
+  distance_method = c("euclidean", "cosine", "manhattan"),
+  pca_components = 50,
+  n_neighbors = 15L,
+  init = "spectral",
+  n_threads = 1
+)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
@@ -60,7 +66,7 @@ initialization. Either a PCA-based initialization or increasing the value of
 
 \item{n_threads}{Number of threads to use (except during stochastic gradient
 descent). Default is half that recommended by RcppParallel. For
-nearest neighbor search, only applies if \code{nn_method = "annoy"}. If 
+nearest neighbor search, only applies if \code{nn_method = "annoy"}. If
 \code{n_threads > 1}, then the Annoy index will be temporarily written to
 disk in the location determined by \code{\link[base]{tempfile}}.}
 }

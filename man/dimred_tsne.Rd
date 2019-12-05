@@ -4,9 +4,15 @@
 \alias{dimred_tsne}
 \title{tSNE}
 \usage{
-dimred_tsne(x, ndim = 2, perplexity = 30, theta = 0.5,
-  initial_dims = 50, distance_method = c("pearson", "spearman",
-  "cosine", "euclidean", "manhattan", "jaccard"))
+dimred_tsne(
+  x,
+  ndim = 2,
+  perplexity = 30,
+  theta = 0.5,
+  initial_dims = 50,
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
+    "jaccard")
+)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}

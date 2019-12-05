@@ -3,7 +3,6 @@
 \docType{package}
 \name{dyndimred}
 \alias{dyndimred}
-\alias{dyndimred-package}
 \title{Common dimensionality reduction methods}
 \description{
 Provides a common interface for applying common dimensionality reduction methods,
