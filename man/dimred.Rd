@@ -39,10 +39,10 @@ dimred_ica(x, ndim = 3)
 
 dimred_knn_fr(
   x,
-  init_ndim = 2,
+  lmds_components = 10,
   distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
     "jaccard"),
-  k = 10
+  n_neighbors = 10
 )
 
 dimred_landmark_mds(
@@ -96,6 +96,12 @@ list_dimred_methods()
 \item{...}{Any arguments to be passed to the dimensionality reduction method}
 
 \item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
+
+\item{lmds_components}{The number of lmds components to use.
+If NULL, LMDS will not be performed first.
+If this is a matrix, it is assumed it is a dimred for x.}
+
+\item{n_neighbors}{The size of local neighborhood (in terms of number of neighboring sample points).}
 }
 \description{
 Perform simple dimensionality reduction

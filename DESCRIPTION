@@ -34,9 +34,11 @@ Suggests:
   destiny,
   diffusionMap,
   fastICA,
+  igraph,
   lle,
   MASS,
   Matrix,
+  RANN,
   Rtsne,
   smacof,
   uwot

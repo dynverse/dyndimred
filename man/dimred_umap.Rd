@@ -23,11 +23,7 @@ dimred_umap(
 
 \item{pca_components}{The number of pca components to use for UMAP. If NULL, PCA will not be performed first}
 
-\item{n_neighbors}{The size of local neighborhood (in terms of number of
-neighboring sample points) used for manifold approximation. Larger values
-result in more global views of the manifold, while smaller values result in
-more local data being preserved. In general values should be in the range
-\code{2} to \code{100}.}
+\item{n_neighbors}{The size of local neighborhood (in terms of number of neighboring sample points).}
 
 \item{init}{Type of initialization for the coordinates. Options are:
  \itemize{
