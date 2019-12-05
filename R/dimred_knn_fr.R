@@ -18,7 +18,7 @@ dimred_knn_fr <- function(
 
   if (is.null(lmds_components)) {
     space <- x
-  } else if (!is.matrix(lmds_components)) {
+  } else if (is.matrix(lmds_components)) {
     space <- lmds_components
   } else {
     space <- lmds::lmds(
@@ -35,11 +35,11 @@ dimred_knn_fr <- function(
     j = as.vector(knn$nn.idx),
     d = 1 / as.vector(knn$nn.dists)
   )
-  kdf <- kdf[kdf$i != kdf$j]
+  kdf <- kdf[kdf$i != kdf$j,]
 
   gr <- igraph::graph_from_data_frame(kdf, vertices = seq_len(nrow(x)))
 
-  dimred <- dynutils::scale_uniform(igraph::layout_with_fr(gr))
+  dimred <- dynutils::scale_uniform(igraph::layout_nicely(gr))
   rownames(dimred) <- rownames(x)
 
   .process_dimred(dimred)
