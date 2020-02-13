@@ -31,8 +31,7 @@ dimred_dm_destiny(
 dimred_dm_diffusionmap(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
 )
 
 dimred_ica(x, ndim = 3)
@@ -40,16 +39,14 @@ dimred_ica(x, ndim = 3)
 dimred_knn_fr(
   x,
   lmds_components = 10,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard"),
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan"),
   n_neighbors = 10
 )
 
 dimred_landmark_mds(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
 )
 
 dimred_lle(x, ndim = 3)
@@ -57,29 +54,25 @@ dimred_lle(x, ndim = 3)
 dimred_mds(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
 )
 
 dimred_mds_isomds(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
 )
 
 dimred_mds_sammon(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
 )
 
 dimred_mds_smacof(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan",
-    "jaccard")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
 )
 
 dimred_pca(x, ndim = 2)
