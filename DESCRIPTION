@@ -22,7 +22,7 @@ Description:
   Locally-Linear Embedding ('LLE'), t-distributed Stochastic Neighbor Embedding ('t-SNE'), 
   and Uniform Manifold Approximation and Projection ('UMAP'). 
   Has built-in support for sparse matrices.
-License: MIT + LICENSE file
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
