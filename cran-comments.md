@@ -1,3 +1,7 @@
+# dyndimred 1.0.3
+  
+* Change license to MIT.
+
 # dyndimred 1.0.2
 
 Minor changes to the DESCRIPTION.
