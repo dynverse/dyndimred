@@ -42,9 +42,9 @@ Suggests:
   Rtsne,
   smacof,
   uwot
-Remotes: 
-    dynverse/lmds@devel,
-    dynverse/dynutils@devel
+Remotes:  
+    dynverse/lmds@master,
+    dynverse/dynutils@master
 RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/dynverse/dyndimred
