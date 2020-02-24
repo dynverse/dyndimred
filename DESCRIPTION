@@ -1,7 +1,7 @@
 Package: dyndimred
 Type: Package
 Title: Dimensionality Reduction Methods in a Common Format
-Version: 1.0.3
+Version: 1.0.3.9000
 Authors@R: c(
     person(
       "Robrecht", "Cannoodt", 
