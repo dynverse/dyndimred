@@ -4,19 +4,26 @@
 \alias{dimred_umap}
 \title{UMAP}
 \usage{
-dimred_umap(x, ndim = 2, n_neighbors = 15L, init = "spectral",
-  n_threads = 1)
+dimred_umap(
+  x,
+  ndim = 2,
+  distance_method = c("euclidean", "cosine", "manhattan"),
+  pca_components = 50,
+  n_neighbors = 15L,
+  init = "spectral",
+  n_threads = 1
+)
 }
 \arguments{
 \item{x}{Log transformed expression data, with rows as cells and columns as features}
 
 \item{ndim}{The number of dimensions}
 
-\item{n_neighbors}{The size of local neighborhood (in terms of number of
-neighboring sample points) used for manifold approximation. Larger values
-result in more global views of the manifold, while smaller values result in
-more local data being preserved. In general values should be in the range
-\code{2} to \code{100}.}
+\item{distance_method}{The name of the distance metric, see \link[dynutils:calculate_distance]{dynutils::calculate_distance}}
+
+\item{pca_components}{The number of pca components to use for UMAP. If NULL, PCA will not be performed first}
+
+\item{n_neighbors}{The size of local neighborhood (in terms of number of neighboring sample points).}
 
 \item{init}{Type of initialization for the coordinates. Options are:
  \itemize{
@@ -55,7 +62,7 @@ initialization. Either a PCA-based initialization or increasing the value of
 
 \item{n_threads}{Number of threads to use (except during stochastic gradient
 descent). Default is half that recommended by RcppParallel. For
-nearest neighbor search, only applies if \code{nn_method = "annoy"}. If 
+nearest neighbor search, only applies if \code{nn_method = "annoy"}. If
 \code{n_threads > 1}, then the Annoy index will be temporarily written to
 disk in the location determined by \code{\link[base]{tempfile}}.}
 }

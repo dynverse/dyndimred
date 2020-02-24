@@ -1,27 +1,53 @@
-# Resubmission
+Fixed check errors. Packages are not automatically installed unless user
+is in interactive mode and responds affirmatively to the displayed prompts.
 
-Changes made:
+Function also respects the users' choice of CRAN mirror.
 
-* Clarified the abbreviation used in the description (PCA).
+# dyndimred 1.0.3
 
-* Clarified usage of the `install_packages()` function in 
-  some of the functions. This will check whether a package is 
-  installed and will prompt the user if the package should be
-  installed, if it is not.
+* MINOR CHANGES: The code for landmark mds has been moved to its own separate package, `lmds`.
+
+* MINOR CHANGES: Change license to MIT.
+
+* MINOR CHANGES: Fix `dynutils::install_packages()` such that it prompts the user whether or
+  not to install packages when in interactive mode, and simply returns an error
+  when not in interactive mode.
   
-* Extended examples to include all functions, not just a few examples.
-  The examples are not run as it would run for too long. However, each 
-  of the functions are definitely being tested in the unit tests.
-
 # Test environments
 
-* local Fedora 28 installation, R 3.6.0
-* ubuntu 14.04.5 LTS (on travis-ci), R 3.6.0
+* local Fedora 31 installation, R 3.6.2
+* ubuntu 16.04.5 LTS (on travis-ci), R 3.6.0
 * win-builder (devel and release)
 
-# R CMD check results
 
-── R CMD check results ──────────────────────────────────────────────────────────────────────────────────── dyndimred 1.0.1 ────
-Duration: 4m 23.6s
+## R CMD check results
+```
+── R CMD check results ─────────────────────────────── dyndimred 1.0.2.9000 ────
+Duration: 48.7s
 
-0 errors ✔ | 0 warnings ✔ | 0 notes ✔
+0 errors ✓ | 0 warnings ✓ | 0 notes ✓
+
+R CMD check succeeded
+```
+
+
+## Reverse dependencies
+
+A reverse dependency check was run on all downstream dependencies.
+(Summary at [revdep/README.md](revdep/README.md)). No new problems were found.
+
+```
+> revdepcheck::revdep_check(timeout = as.difftime(60, units = "mins"), num_workers = 8)
+── INSTALL ─────────────────────────────── 2 versions ──
+Installing CRAN version of dyndimred
+Installing DEV version of dyndimred
+── CHECK ─────────────────────────────── 1 packages ──
+✓ dynwrap 1.1.4                          ── E: 0     | W: 0     | N: 1                                                                                                               
+OK: 1                                                                                                                                                                              
+BROKEN: 0
+Total time: 13 min
+── REPORT ─────────────────────────────── 
+Writing summary to 'revdep/README.md'
+Writing problems to 'revdep/problems.md'
+Writing failures to 'revdep/failures.md'
+```

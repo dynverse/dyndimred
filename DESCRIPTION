@@ -1,7 +1,7 @@
 Package: dyndimred
 Type: Package
 Title: Dimensionality Reduction Methods in a Common Format
-Version: 1.0.2
+Version: 1.0.3
 Authors@R: c(
     person(
       "Robrecht", "Cannoodt", 
@@ -22,26 +22,30 @@ Description:
   Locally-Linear Embedding ('LLE'), t-distributed Stochastic Neighbor Embedding ('t-SNE'), 
   and Uniform Manifold Approximation and Projection ('UMAP'). 
   Has built-in support for sparse matrices.
-License: GPL-3
+License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
   dynutils (>= 1.0.3),
-  irlba
+  irlba,
+  lmds
 Suggests: 
   testthat,
   destiny,
   diffusionMap,
   fastICA,
+  igraph,
   lle,
   MASS,
   Matrix,
+  RANN,
   Rtsne,
   smacof,
   uwot
 Remotes: 
-    dynverse/dynutils@master
-RoxygenNote: 6.1.1
+    dynverse/lmds@devel,
+    dynverse/dynutils@devel
+RoxygenNote: 7.0.2
 Roxygen: list(markdown = TRUE)
-URL: http://github.com/dynverse/dyndimred
+URL: https://github.com/dynverse/dyndimred
 BugReports: https://github.com/dynverse/dyndimred/issues
