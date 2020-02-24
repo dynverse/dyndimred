@@ -7,8 +7,9 @@ dimred_dm_diffusionmap <- function(
   ndim = 2,
   distance_method
 ) {
-  # `install_packages()` checks whether the required package is installed
-  # and will prompt the user about whether it should be installed
+  # `install_packages()` checks whether the required package is installed.
+  # If the session is interactive and the package is not installed,
+  # The user will be prompted about whether it should be installed.
   install_packages(dependencies = "diffusionMap", package = "dyndimred")
   requireNamespace("diffusionMap")
 

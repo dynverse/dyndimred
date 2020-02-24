@@ -2,6 +2,10 @@
   
 * Change license to MIT.
 
+* Fix dynutils::install_packages() such that it prompts the user whether or
+  not to install packages when in interactive mode, and simply returns an error
+  when not in interactive mode.
+  
 # dyndimred 1.0.2
 
 Minor changes to the DESCRIPTION.
