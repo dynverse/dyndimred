@@ -105,19 +105,19 @@ x <- abs(Matrix::rsparsematrix(100, 100, .5))
 dimred(x, "pca", ndim = 3)
 dimred(x, "ica", ndim = 3)
 
-\dontrun{
-dimred_dm_destiny(x)
-dimred_dm_diffusionmap(x)
-dimred_ica(x)
-dimred_landmark_mds(x)
-dimred_lle(x)
-dimred_mds(x)
-dimred_mds_isomds(x)
-dimred_mds_sammon(x)
-dimred_mds_smacof(x)
-dimred_pca(x)
-dimred_tsne(x)
-dimred_umap(x)
+if (interactive()) {
+  dimred_dm_destiny(x)
+  dimred_dm_diffusionmap(x)
+  dimred_ica(x)
+  dimred_landmark_mds(x)
+  dimred_lle(x)
+  dimred_mds(x)
+  dimred_mds_isomds(x)
+  dimred_mds_sammon(x)
+  dimred_mds_smacof(x)
+  dimred_pca(x)
+  dimred_tsne(x)
+  dimred_umap(x)
 }
 
 }

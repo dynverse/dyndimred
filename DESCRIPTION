@@ -26,7 +26,7 @@ License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true
 Imports:
-  dynutils (>= 1.0.3),
+  dynutils (>= 1.0.5),
   irlba,
   lmds
 Suggests: 
