@@ -45,7 +45,7 @@ Suggests:
 Remotes: 
     dynverse/lmds@devel,
     dynverse/dynutils@devel
-RoxygenNote: 7.0.2
+RoxygenNote: 7.1.0
 Roxygen: list(markdown = TRUE)
 URL: https://github.com/dynverse/dyndimred
 BugReports: https://github.com/dynverse/dyndimred/issues

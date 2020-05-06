@@ -10,7 +10,8 @@ dimred_tsne(
   perplexity = 30,
   theta = 0.5,
   initial_dims = 50,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 }
 \arguments{
