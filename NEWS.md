@@ -1,3 +1,9 @@
+# dyndimred 1.0.4
+
+* MINOR CHANGES: Check package is installed before running unit tests.
+
+* MINOR CHANGES: Remove `dynutils::install_packages()`.
+
 # dyndimred 1.0.3
 
 * MINOR CHANGES: The code for landmark mds has been moved to its own separate package, `lmds`.
