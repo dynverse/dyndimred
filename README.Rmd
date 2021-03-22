@@ -5,6 +5,7 @@ output: github_document
 
 <!-- badges: start -->
 [![R build status](https://github.com/dynverse/dyndimred/workflows/R-CMD-check/badge.svg)](https://github.com/dynverse/dyndimred/actions)
+[![Codecov test coverage](https://codecov.io/gh/dynverse/dyndimred/branch/master/graph/badge.svg)](https://codecov.io/gh/dynverse/dyndimred?branch=master)
 <!-- badges: end -->
   
 [**ℹ️ Tutorials**](https://dynverse.org) 
