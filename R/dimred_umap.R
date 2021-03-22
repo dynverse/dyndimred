@@ -10,10 +10,6 @@
 #' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
 #' dimred_umap(dataset, ndim = 3)
 dimred_umap <- function(x, ndim = 2, distance_method = c("euclidean", "cosine", "manhattan"), pca_components = 50, n_neighbors = 15L, init = "spectral", n_threads = 1) {
-  # `install_packages()` checks whether the required package is installed.
-  # If the session is interactive and the package is not installed,
-  # The user will be prompted about whether it should be installed.
-  install_packages("uwot")
   requireNamespace("uwot")
 
   if (!is.null(pca_components)) {
