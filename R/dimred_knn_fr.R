@@ -7,12 +7,17 @@
 #' @export
 dimred_knn_fr <- function(
   x,
+  ndim = 2,
   lmds_components = 10,
   distance_method,
   n_neighbors = 10
 ) {
   requireNamespace("igraph")
   requireNamespace("RANN")
+
+  if (ndim != 2) {
+    warning("for dimred_knn_fr(), n_dim should be set to 2")
+  }
 
   distance_method <- match.arg(distance_method)
 
