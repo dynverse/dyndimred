@@ -12,7 +12,7 @@ Function also respects the users' choice of CRAN mirror.
 * MINOR CHANGES: Fix `dynutils::install_packages()` such that it prompts the user whether or
   not to install packages when in interactive mode, and simply returns an error
   when not in interactive mode.
-  
+
 # Test environments
 
 * local Fedora 31 installation, R 3.6.2
@@ -22,8 +22,8 @@ Function also respects the users' choice of CRAN mirror.
 
 ## R CMD check results
 ```
-── R CMD check results ─────────────────────────────── dyndimred 1.0.2.9000 ────
-Duration: 48.7s
+── R CMD check results ──────────────────────────────────── dyndimred 1.0.4 ────
+Duration: 1m 53.4s
 
 0 errors ✓ | 0 warnings ✓ | 0 notes ✓
 
@@ -37,7 +37,7 @@ A reverse dependency check was run on all downstream dependencies.
 (Summary at [revdep/README.md](revdep/README.md)). No new problems were found.
 
 ```
-> revdepcheck::revdep_check(timeout = as.difftime(60, units = "mins"), num_workers = 8)
+> revdepcheck::revdep_check(timeout = as.difftime(60, units = "mins"), num_workers = 30)
 ── INSTALL ─────────────────────────────── 2 versions ──
 Installing CRAN version of dyndimred
 Installing DEV version of dyndimred

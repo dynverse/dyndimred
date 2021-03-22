@@ -8,7 +8,7 @@
 #' @examples
 #' library(Matrix)
 #' dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
-#' dimred_umap(dataset, ndim = 3)
+#' dimred_umap(dataset, ndim = 2, pca_components = NULL)
 dimred_umap <- function(x, ndim = 2, distance_method = c("euclidean", "cosine", "manhattan"), pca_components = 50, n_neighbors = 15L, init = "spectral", n_threads = 1) {
   requireNamespace("uwot")
 

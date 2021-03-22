@@ -4,6 +4,10 @@
 
 * MINOR CHANGES: Remove `dynutils::install_packages()`.
 
+* MINOR CHANGES: Changed maintainer to avoid frequent archivings.
+
+* DEFUNCT `dimred_dm_destiny()`: Marked this function as defunct as destiny is currently not on CRAN anymore.
+
 # dyndimred 1.0.3
 
 * MINOR CHANGES: The code for landmark mds has been moved to its own separate package, `lmds`.
@@ -24,4 +28,4 @@
 
 # dyndimred 1.0.0 (29-03-2019)
 
-* Initial release of dyndimred, includes tsne, umap, lle, pca, diffusion map, mds, landmark mds
+* Initial release of dyndimred, includes tsne, umap, lle, pca, diffusion map, mds, landmark mds.

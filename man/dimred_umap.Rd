@@ -73,7 +73,7 @@ UMAP
 \examples{
 library(Matrix)
 dataset <- abs(Matrix::rsparsematrix(100, 100, .5))
-dimred_umap(dataset, ndim = 3)
+dimred_umap(dataset, ndim = 2, pca_components = NULL)
 }
 \seealso{
 \code{\link[uwot:umap]{uwot::umap()}}
