@@ -1,14 +1,14 @@
 # dyndimred 1.0.4
 
-* MINOR CHANGES: Check package is installed before running unit tests.
-
-* MINOR CHANGES: Remove `dynutils::install_packages()`.
-
-* MINOR CHANGES: Changed maintainer to avoid frequent archivings.
+* MAJOR CHANGES: Changed maintainer to avoid frequent archivings.
 
 * DEFUNCT `dimred_dm_destiny()`: Marked this function as defunct as destiny is currently not on CRAN anymore.
 
-# dyndimred 1.0.3
+* MINOR CHANGES: Running unit tests requiring suggested packages is now conditional on its availability.
+
+* MINOR CHANGES: Remove usage of`dynutils::install_packages()`.
+
+# dyndimred 1.0.3 (08-03-2020)
 
 * MINOR CHANGES: The code for landmark mds has been moved to its own separate package, `lmds`.
 
@@ -18,7 +18,7 @@
   not to install packages when in interactive mode, and simply returns an error
   when not in interactive mode.
 
-# dyndimred 1.0.2 (07-08-2018)
+# dyndimred 1.0.2 (08-07-2019)
 
 * MINOR CHANGES: Move Matrix to Suggests.
 
