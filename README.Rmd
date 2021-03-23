@@ -3,7 +3,11 @@ title: "dyndimred"
 output: github_document
 ---
 
-[![Build Status](https://travis-ci.org/dynverse/dyndimred.svg?branch=master)](https://travis-ci.org/dynverse/dyndimred) 
+<!-- badges: start -->
+[![R build status](https://github.com/dynverse/dyndimred/workflows/R-CMD-check/badge.svg)](https://github.com/dynverse/dyndimred/actions)
+[![Codecov test coverage](https://codecov.io/gh/dynverse/dyndimred/branch/master/graph/badge.svg)](https://codecov.io/gh/dynverse/dyndimred?branch=master)
+<!-- badges: end -->
+  
 [**ℹ️ Tutorials**](https://dynverse.org) 
 
 

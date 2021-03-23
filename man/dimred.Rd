@@ -31,22 +31,26 @@ dimred_dm_destiny(
 dimred_dm_diffusionmap(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 
 dimred_ica(x, ndim = 3)
 
 dimred_knn_fr(
   x,
+  ndim = 2,
   lmds_components = 10,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan"),
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski"),
   n_neighbors = 10
 )
 
 dimred_landmark_mds(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 
 dimred_lle(x, ndim = 3)
@@ -54,25 +58,29 @@ dimred_lle(x, ndim = 3)
 dimred_mds(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 
 dimred_mds_isomds(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 
 dimred_mds_sammon(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 
 dimred_mds_smacof(
   x,
   ndim = 2,
-  distance_method = c("pearson", "spearman", "cosine", "euclidean", "manhattan")
+  distance_method = c("pearson", "spearman", "cosine", "euclidean", "chisquared",
+    "hamming", "kullback", "manhattan", "maximum", "canberra", "minkowski")
 )
 
 dimred_pca(x, ndim = 2)
@@ -105,19 +113,19 @@ x <- abs(Matrix::rsparsematrix(100, 100, .5))
 dimred(x, "pca", ndim = 3)
 dimred(x, "ica", ndim = 3)
 
-\dontrun{
-dimred_dm_destiny(x)
-dimred_dm_diffusionmap(x)
-dimred_ica(x)
-dimred_landmark_mds(x)
-dimred_lle(x)
-dimred_mds(x)
-dimred_mds_isomds(x)
-dimred_mds_sammon(x)
-dimred_mds_smacof(x)
-dimred_pca(x)
-dimred_tsne(x)
-dimred_umap(x)
+if (interactive()) {
+  dimred_dm_destiny(x)
+  dimred_dm_diffusionmap(x)
+  dimred_ica(x)
+  dimred_landmark_mds(x)
+  dimred_lle(x)
+  dimred_mds(x)
+  dimred_mds_isomds(x)
+  dimred_mds_sammon(x)
+  dimred_mds_smacof(x)
+  dimred_pca(x)
+  dimred_tsne(x)
+  dimred_umap(x)
 }
 
 }
